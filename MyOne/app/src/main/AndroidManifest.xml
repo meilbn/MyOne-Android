@@ -7,6 +7,7 @@
 
     <application
         android:allowBackup="true"
+        android:name=".application.MyOneApplication"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
