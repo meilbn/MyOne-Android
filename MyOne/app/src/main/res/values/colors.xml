@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Common -->
+    <color name="white">#ffffff</color>
+
+    <!-- Main TabBar Text Color -->
+    <color name="main_tabbar_text_color">#929292</color>
+
+
+</resources>

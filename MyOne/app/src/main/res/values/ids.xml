@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Main -->
+    <item name="main_container" type="id"/>
+
+    <!-- Main Bottom TabBar -->
+    <item name="main_bottom_tabbar_home_tv" type="id"/>
+    <item name="main_bottom_tabbar_reading_tv" type="id"/>
+    <item name="main_bottom_tabbar_question_tv" type="id"/>
+    <item name="main_bottom_tabbar_thing_tv" type="id"/>
+    <item name="main_bottom_tabbar_personal_tv" type="id"/>
+
+</resources>

@@ -5,4 +5,15 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <!-- Main Tabbar TextView -->
+    <style name="MainTabBarItem">
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:drawablePadding">@dimen/main_bottom_tabbar_drawable_padding</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:textColor">@color/main_tabbar_text_color</item>
+        <item name="android:textSize">@dimen/main_bottom_tabbar_test_size</item>
+    </style>
+
 </resources>

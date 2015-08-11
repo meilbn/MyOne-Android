@@ -3,4 +3,13 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+    <!-- Main TabBar -->
+    <string name="main_tabbar_home_text">首页</string>
+    <string name="main_tabbar_reading_text">文章</string>
+    <string name="main_tabbar_question_text">问题</string>
+    <string name="main_tabbar_thing_text">东西</string>
+    <string name="main_tabbar_personal_text">个人</string>
+
+
 </resources>
