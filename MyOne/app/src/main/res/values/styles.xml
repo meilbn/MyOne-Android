@@ -14,6 +14,7 @@
         <item name="android:gravity">center_horizontal</item>
         <item name="android:textColor">@color/main_tabbar_text_color</item>
         <item name="android:textSize">@dimen/main_bottom_tabbar_test_size</item>
+        <item name="android:clickable">true</item>
     </style>
 
 </resources>
