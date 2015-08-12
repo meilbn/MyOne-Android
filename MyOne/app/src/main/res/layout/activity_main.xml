@@ -10,6 +10,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1" />
 
-    <include layout="@layout/layout_main_bottom_tabbar" />
+    <include layout="@layout/include_main_bottom_tabbar" />
 
 </LinearLayout>

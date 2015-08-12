@@ -1,5 +1,7 @@
 package com.mylody.myone.ui.activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.webkit.WebView;
 
@@ -18,6 +20,11 @@ public class AboutActivity extends BaseActivity {
         setContentView(R.layout.activity_about);
 
         mWebView.loadUrl("http://m.wufazhuce.com/about?from=ONEApp");
+    }
+
+    public static void openActivity(Context context) {
+        Intent intent = new Intent(context, AboutActivity.class);
+        context.startActivity(intent);
     }
 
 }

@@ -22,4 +22,38 @@
         <item name="android:clickable">true</item>
     </style>
 
+    <style name="Line_Horizontal">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/personal_row_separator_line_height</item>
+        <item name="android:background">@color/darkgray</item>
+        <item name="android:layout_marginLeft">@dimen/personal_row_separator_line_margin</item>
+        <item name="android:layout_marginRight">@dimen/personal_row_separator_line_margin</item>
+    </style>
+
+    <!-- Personal Row -->
+    <style name="PersonRow">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/personal_row_height</item>
+    </style>
+
+    <style name="PersonRowItem">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+    </style>
+
+    <style name="PersonRowIcon" parent="PersonRowItem">
+        <item name="android:layout_marginLeft">@dimen/personal_row_icon_margin_left</item>
+    </style>
+
+    <style name="PersonRowText" parent="PersonRowItem">
+        <item name="android:layout_marginLeft">@dimen/personal_row_textview_margin_left</item>
+    </style>
+
+    <style name="PersonRowRightArrow" parent="PersonRowItem">
+        <item name="android:layout_alignParentRight">true</item>
+        <item name="android:layout_marginRight">@dimen/personal_row_arrow_margin_right</item>
+        <item name="android:src">@mipmap/one_details_page_arrowhead</item>
+    </style>
+
 </resources>

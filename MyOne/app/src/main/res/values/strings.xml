@@ -4,6 +4,10 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
 
+    <!-- Common -->
+    <string name="settings">设置</string>
+    <string name="about">关于</string>
+
     <!-- Main TabBar -->
     <string name="main_tabbar_home_text">首页</string>
     <string name="main_tabbar_reading_text">文章</string>
@@ -12,5 +16,8 @@
     <string name="main_tabbar_personal_text">个人</string>
     <string name="title_activity_about">AboutActivity</string>
     <string name="title_activity_welcome">WelcomeActivity</string>
+
+    <!-- Personal -->
+    <string name="personal_login_text">立即登录</string>
 
 </resources>

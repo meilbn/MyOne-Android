@@ -1,9 +1,68 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.mylody.myone.ui.fragment.PersonalFragment">
+    android:orientation="vertical">
 
+    <include layout="@layout/include_default_title_bar" />
 
+    <RelativeLayout
+        android:id="@id/personal_login_rl"
+        style="@style/PersonRow">
+
+        <ImageView
+            android:id="@id/personal_login_user_icon_iv"
+            style="@style/PersonRowIcon"
+            android:src="@mipmap/user_default_icon" />
+
+        <TextView
+            style="@style/PersonRowText"
+            android:layout_toRightOf="@id/personal_login_user_icon_iv"
+            android:text="@string/personal_login_text" />
+
+        <ImageView style="@style/PersonRowRightArrow" />
+
+    </RelativeLayout>
+
+    <View style="@style/Line_Horizontal" />
+
+    <RelativeLayout
+        android:id="@id/personal_settings_rl"
+        style="@style/PersonRow">
+
+        <ImageView
+            android:id="@id/personal_settings_iv"
+            style="@style/PersonRowIcon"
+            android:src="@mipmap/setting" />
+
+        <TextView
+            style="@style/PersonRowText"
+            android:layout_toRightOf="@id/personal_settings_iv"
+            android:text="@string/settings" />
+
+        <ImageView style="@style/PersonRowRightArrow" />
+
+    </RelativeLayout>
+
+    <View style="@style/Line_Horizontal" />
+
+    <RelativeLayout
+        android:id="@id/personal_about_rl"
+        style="@style/PersonRow">
+
+        <ImageView
+            android:id="@id/personal_about_iv"
+            style="@style/PersonRowIcon"
+            android:src="@mipmap/copyright_default_icon" />
+
+        <TextView
+            style="@style/PersonRowText"
+            android:layout_toRightOf="@id/personal_about_iv"
+            android:text="@string/about" />
+
+        <ImageView style="@style/PersonRowRightArrow" />
+
+    </RelativeLayout>
+
+    <View style="@style/Line_Horizontal" />
 
 </LinearLayout>

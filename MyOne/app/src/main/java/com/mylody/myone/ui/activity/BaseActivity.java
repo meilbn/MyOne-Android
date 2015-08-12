@@ -27,6 +27,7 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
+        ButterKnife.reset(this);
     }
 
     @Override

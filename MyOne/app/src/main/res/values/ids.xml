@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!-- Title Bar -->
+    <item name="title_bar_right_button" type="id"/>
+    <item name="title_bar_center_imageview" type="id"/>
+
+    <!-- Back Title View-->
+    <item name="back_title_view_back_iv" type="id"/>
+    <item name="back_title_view_title_tv" type="id"/>
+
     <!-- Main -->
     <item name="main_container" type="id"/>
 
@@ -24,7 +32,12 @@
 
 
     <!-- Personal -->
-
+    <item name="personal_login_rl" type="id" />
+    <item name="personal_settings_rl" type="id" />
+    <item name="personal_about_rl" type="id" />
+    <item name="personal_login_user_icon_iv" type="id" />
+    <item name="personal_settings_iv" type="id" />
+    <item name="personal_about_iv" type="id" />
 
 
     <!-- About -->

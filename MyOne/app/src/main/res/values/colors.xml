@@ -8,7 +8,8 @@
     <color name="skyblue">#FF73DCFF</color>
     <color name="clear_color">#00000000</color>
     <color name="transparent">#99000000</color>
-    <color name="navigation_bar_background_color">#FFF0F0F0</color>
+    <color name="navigation_bar_background_color">#FFE6E6E6</color>
+    <color name="back_title_text_color">#FF4C4D4E</color>
 
     <color name="colorPrimary">#FFF0F0F0</color>
     <color name="colorAccent">#FFEBEBEB</color>
@@ -26,7 +27,7 @@
     <!-- Other -->
     <color name="one_title_bg_day_gray">#ffe6e6e6</color>
     <color name="one_title_bg_night_gray">#ff202022</color>
-    <color name="one_textcolor">#ff4c4d4e</color>
+
     <color name="blue_button_text">#ff00a0ea</color>
     <color name="text_color_h">#ffdbdad5</color>
     <color name="dimgray">#ff696969</color>
