@@ -1,39 +1,210 @@
 package com.mylody.myone.ui.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentTransaction;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 
 import com.mylody.myone.R;
+import com.mylody.myone.ui.fragment.HomeFragment;
+import com.mylody.myone.ui.fragment.PersonalFragment;
+import com.mylody.myone.ui.fragment.QuestionFragment;
+import com.mylody.myone.ui.fragment.ReadingFragment;
+import com.mylody.myone.ui.fragment.ThingFragment;
+import com.mylody.myone.util.Utils;
 
-public class MainActivity extends AppCompatActivity {
+import butterknife.InjectViews;
+import butterknife.OnClick;
+
+public class MainActivity extends BaseActivity {
+
+    /**
+     * 对应"首页"的Fragment的TAG
+     */
+    private static final String TAG_PAGE_HOME = Utils.getString(R.string.main_tabbar_home_text);
+    /**
+     * 对应"文章"的Fragment的TAG
+     */
+    private static final String TAG_PAGE_READING = Utils.getString(R.string.main_tabbar_reading_text);
+    /**
+     * 对应"问题"的Fragment的TAG
+     */
+    private static final String TAG_PAGE_QUESTION = Utils.getString(R.string.main_tabbar_question_text);
+    /**
+     * 对应"东西"的Fragment的TAG
+     */
+    private static final String TAG_PAGE_THING = Utils.getString(R.string.main_tabbar_thing_text);
+    /**
+     * 对应"个人"的Fragment的TAG
+     */
+    private static final String TAG_PAGE_PERSONAL = Utils.getString(R.string.main_tabbar_personal_text);
+
+    private String mCurrentTag;
+
+    @InjectViews({R.id.main_bottom_tabbar_home_tv, R.id.main_bottom_tabbar_reading_tv,
+            R.id.main_bottom_tabbar_question_tv, R.id.main_bottom_tabbar_thing_tv, R.id.main_bottom_tabbar_personal_tv})
+    TextView[] mBottomTabBarItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        // 默认显示首页
+        setSelectBottomItem(R.id.main_bottom_tabbar_home_tv);
+        hideAllFragment();
+        showFragment(TAG_PAGE_HOME);
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
-        return true;
+    /**
+     * 设置当前选中的 TabBar Item
+     *
+     * @param viewId 选中的 Item 对应的 id
+     */
+    private void setSelectBottomItem(int viewId) {
+        for (int i = 0; i < mBottomTabBarItemList.length; i++) {
+            mBottomTabBarItemList[i].setSelected(false);
+            mBottomTabBarItemList[i].setTextColor(getResources().getColor(R.color.main_tabbar_text_color));
+        }
+        TextView item = (TextView) findViewById(viewId);
+        item.setSelected(true);
+        item.setTextColor(getResources().getColor(R.color.main_tabbar_selected_text_color));
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    private void hideAllFragment() {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        Fragment homeFragment = getSupportFragmentManager().findFragmentByTag(TAG_PAGE_HOME);
+        if (homeFragment != null && !homeFragment.isHidden()) {
+            transaction.hide(homeFragment);
+        }
+
+        Fragment readingFragment = getSupportFragmentManager().findFragmentByTag(TAG_PAGE_READING);
+        if (readingFragment != null && !readingFragment.isHidden()) {
+            transaction.hide(readingFragment);
+        }
+
+        Fragment questionFragment = getSupportFragmentManager().findFragmentByTag(TAG_PAGE_QUESTION);
+        if (questionFragment != null && !questionFragment.isHidden()) {
+            transaction.hide(questionFragment);
+        }
+
+        Fragment thingFragment = getSupportFragmentManager().findFragmentByTag(TAG_PAGE_THING);
+        if (thingFragment != null && !thingFragment.isHidden()) {
+            transaction.hide(thingFragment);
+        }
+
+        Fragment personalFragment = getSupportFragmentManager().findFragmentByTag(TAG_PAGE_PERSONAL);
+        if (personalFragment != null && !personalFragment.isHidden()) {
+            transaction.hide(personalFragment);
+        }
+
+        transaction.commit();
+    }
+
+    /**
+     * 显示 tag 对应的 fragment
+     *
+     * @param tag 要显示的 fragment 对应的 tag
+     */
+    private void showFragment(String tag) {
+        FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+        if (isFragmentShown(transaction, tag)) {
+            return;
+        }
+
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
+        if (fragment == null) {
+            fragment = getFragmentInstance(tag);
+            transaction.add(R.id.main_container, fragment, tag);
+        } else {
+            transaction.show(fragment);
+        }
+
+        transaction.commit();
+    }
+
+    /**
+     * 判断要显示的fragment是否已经处于显示状态，不是的话会将之前的fragment隐藏
+     *
+     * @param transaction
+     * @param newTag      要显示的fragment的标签
+     * @return 已显示返回true, 否则返回false
+     */
+    private boolean isFragmentShown(FragmentTransaction transaction, String newTag) {
+        if (newTag.equals(mCurrentTag)) {
             return true;
         }
 
-        return super.onOptionsItemSelected(item);
+        if (TextUtils.isEmpty(mCurrentTag)) {
+            mCurrentTag = newTag;
+            return false;
+        }
+
+        Fragment fragment = getSupportFragmentManager().findFragmentByTag(mCurrentTag);
+        if (fragment != null && !fragment.isHidden()) {
+            transaction.hide(fragment);
+        }
+
+        mCurrentTag = newTag;
+
+        return false;
     }
+
+    /**
+     * 根据tag得到fragment实例
+     *
+     * @param tag fragment对于标签
+     * @return
+     */
+    public Fragment getFragmentInstance(String tag) {
+        Fragment fragment = null;
+
+        if (TextUtils.equals(tag, TAG_PAGE_HOME)) {
+            fragment = new HomeFragment();
+        } else if (TextUtils.equals(tag, TAG_PAGE_READING)) {
+            fragment = new ReadingFragment();
+        } else if (TextUtils.equals(tag, TAG_PAGE_QUESTION)) {
+            fragment = new QuestionFragment();
+        } else if (TextUtils.equals(tag, TAG_PAGE_THING)) {
+            fragment = new ThingFragment();
+        } else if (TextUtils.equals(tag, TAG_PAGE_PERSONAL)) {
+            fragment = new PersonalFragment();
+        }
+
+        return fragment;
+    }
+
+    @OnClick({R.id.main_bottom_tabbar_home_tv, R.id.main_bottom_tabbar_reading_tv,
+            R.id.main_bottom_tabbar_question_tv, R.id.main_bottom_tabbar_thing_tv, R.id.main_bottom_tabbar_personal_tv})
+    public void onClick(View v) {
+        setSelectBottomItem(v.getId());
+
+        switch (v.getId()) {
+            case R.id.main_bottom_tabbar_home_tv:
+                showFragment(TAG_PAGE_HOME);
+                break;
+            case R.id.main_bottom_tabbar_reading_tv:
+                showFragment(TAG_PAGE_READING);
+                break;
+            case R.id.main_bottom_tabbar_question_tv:
+                showFragment(TAG_PAGE_QUESTION);
+                break;
+            case R.id.main_bottom_tabbar_thing_tv:
+                showFragment(TAG_PAGE_THING);
+                break;
+            case R.id.main_bottom_tabbar_personal_tv:
+                showFragment(TAG_PAGE_PERSONAL);
+                break;
+        }
+    }
+
+    public static void openActivity(Context context) {
+        Intent intent = new Intent(context, MainActivity.class);
+        context.startActivity(intent);
+    }
+
 }

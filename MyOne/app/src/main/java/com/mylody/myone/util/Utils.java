@@ -61,4 +61,12 @@ public class Utils {
         return screenWidth;
     }
 
+    /**
+     * 根据string资源返回文本
+     */
+    public static String getString(int resId) {
+        Context context = MyOneApplication.getContext();
+        return context.getString(resId);
+    }
+
 }
