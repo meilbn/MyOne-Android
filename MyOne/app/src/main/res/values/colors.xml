@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
     <!-- Common -->
-    <color name="white">#FFFFFF</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="black">#FF000000</color>
+    <color name="darkgray">#FFC3C4C6</color>
+    <color name="skyblue">#FF73DCFF</color>
+    <color name="clear_color">#00000000</color>
+    <color name="transparent">#99000000</color>
+    <color name="navigation_bar_background_color">#FFF0F0F0</color>
+
+    <color name="colorPrimary">#FFF0F0F0</color>
+    <color name="colorAccent">#FFEBEBEB</color>
+
+    <!-- Night Mode -->
+    <color name="night_model_bg">#FF333333</color>
+    <color name="night_model_controlcolor">#FFB7B7B7</color>
+    <color name="night_title_bg">#FFDEDEDE</color>
 
     <!-- Main TabBar -->
-    <color name="main_tabbar_text_color">#929292</color>
-    <color name="main_tabbar_background_color">#F5F5F5</color>
-    <color name="main_tabbar_selected_text_color">#37C4F2</color>
+    <color name="main_tabbar_text_color">#FF929292</color>
+    <color name="main_tabbar_background_color">#FFF5F5F5</color>
+    <color name="main_tabbar_selected_text_color">#FF37C4F2</color>
+
+    <!-- Other -->
+    <color name="one_title_bg_day_gray">#ffe6e6e6</color>
+    <color name="one_title_bg_night_gray">#ff202022</color>
+    <color name="one_textcolor">#ff4c4d4e</color>
+    <color name="blue_button_text">#ff00a0ea</color>
+    <color name="text_color_h">#ffdbdad5</color>
+    <color name="dimgray">#ff696969</color>
+    <color name="text_color_normal">#ff666666</color>
+    <color name="home_page_author">#ff838383</color>
+    <color name="home_page_date">#ffaaaaaa</color>
+    <color name="welcomeBackground">#fff4f5f7</color>
+    <color name="share_edit_textcolor">#fff3f3f3</color>
+    <color name="text_color_b">#ff444444</color>
+    <color name="user_answer_laud_color">#ffa6a5a1</color>
+    <color name="register_bg_color">#ff179bed</color>
+    <color name="stow_thing_title_color">#ff5b5b5d</color>
+    <color name="translucent_background">#30000000</color>
+    <color name="default_bg_color">#fff4f5f7</color>
+    <color name="share_dialog_day_background">#ffffffff</color>
+    <color name="share_dialog_night_background">#ff242424</color>
 
 </resources>

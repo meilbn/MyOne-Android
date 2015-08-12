@@ -11,4 +11,23 @@
     <item name="main_bottom_tabbar_thing_tv" type="id"/>
     <item name="main_bottom_tabbar_personal_tv" type="id"/>
 
+    <!-- Home -->
+
+
+    <!-- Reading -->
+
+
+    <!-- Question -->
+
+
+    <!-- Thing -->
+
+
+    <!-- Personal -->
+
+
+
+    <!-- About -->
+    <item name="about_webbiew" type="id" />
+
 </resources>

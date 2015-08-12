@@ -10,5 +10,7 @@
     <string name="main_tabbar_question_text">问题</string>
     <string name="main_tabbar_thing_text">东西</string>
     <string name="main_tabbar_personal_text">个人</string>
+    <string name="title_activity_about">AboutActivity</string>
+    <string name="title_activity_welcome">WelcomeActivity</string>
 
 </resources>

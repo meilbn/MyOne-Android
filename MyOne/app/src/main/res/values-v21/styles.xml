@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="DefaultTitle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">?attr/actionBarSize</item>
+        <item name="android:background">?attr/colorPrimary</item>
+        <item name="android:elevation">@dimen/default_elevation</item>
+        <item name="android:popupTheme">@style/ThemeOverlay.AppCompat.Light</item>
+        <item name="android:theme">@style/ThemeOverlay.AppCompat.Dark.ActionBar</item>
+    </style>
+
+
+    <style name="AppTheme.Translucent">
+        <item name="android:windowTranslucentStatus">true</item>
+    </style>
+
+</resources>
