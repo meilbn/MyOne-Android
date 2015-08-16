@@ -9,6 +9,7 @@ import android.view.ViewGroup;
 
 import com.mylody.myone.R;
 import com.mylody.myone.ui.activity.AboutActivity;
+import com.mylody.myone.ui.activity.SettingActivity;
 
 import butterknife.ButterKnife;
 import butterknife.OnClick;
@@ -42,7 +43,7 @@ public class PersonalFragment extends Fragment {
 
     @OnClick(R.id.personal_settings_rl)
     public void onClickSettings() {
-
+        SettingActivity.openActivity(getActivity());
     }
 
     @OnClick(R.id.personal_about_rl)

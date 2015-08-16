@@ -19,5 +19,18 @@
 
     <!-- Personal -->
     <string name="personal_login_text">立即登录</string>
+    <string name="title_activity_setting">SettingActivity</string>
+
+    <!-- Setting -->
+    <string name="glance_over_set_hint_text">浏览设置</string>
+    <string name="night_model_change_hint_text">夜间模式切换</string>
+    <string name="account_number_hint_text">账号设置</string>
+    <string name="setting_more_hint_text">更多</string>
+    <string name="setting_go_grade_hint_text">去评分</string>
+    <string name="setting_feedback_hint_text">反馈</string>
+    <string name="setting_user_agreement_hint_text">用户协议</string>
+    <string name="setting_version_hint_text">版本号</string>
+    <string name="setting_log_out_hint_text">退出当前帐号</string>
+
 
 </resources>

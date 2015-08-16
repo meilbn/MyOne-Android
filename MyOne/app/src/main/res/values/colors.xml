@@ -24,6 +24,10 @@
     <color name="main_tabbar_background_color">#FFF5F5F5</color>
     <color name="main_tabbar_selected_text_color">#FF37C4F2</color>
 
+    <!-- Setting -->
+    <color name="one_text_color">#FF4C4D4E</color>
+    <color name="setting_hint_text_color">#FF838383</color>
+
     <!-- Other -->
     <color name="one_title_bg_day_gray">#ffe6e6e6</color>
     <color name="one_title_bg_night_gray">#ff202022</color>

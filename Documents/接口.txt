@@ -23,6 +23,8 @@
 			"result": "SUCCESS"
 		}
 
+		{"result":"FAIL","message","data get Nothing!"}
+
 
 文章：
 	地址：

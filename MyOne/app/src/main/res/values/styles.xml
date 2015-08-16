@@ -22,12 +22,12 @@
         <item name="android:clickable">true</item>
     </style>
 
-    <style name="Line_Horizontal">
+    <style name="ListViewSeparateLine">
         <item name="android:layout_width">match_parent</item>
-        <item name="android:layout_height">@dimen/personal_row_separator_line_height</item>
+        <item name="android:layout_height">@dimen/listview_separate_line_height</item>
         <item name="android:background">@color/darkgray</item>
-        <item name="android:layout_marginLeft">@dimen/personal_row_separator_line_margin</item>
-        <item name="android:layout_marginRight">@dimen/personal_row_separator_line_margin</item>
+        <item name="android:layout_marginLeft">@dimen/listview_separate_line_margin</item>
+        <item name="android:layout_marginRight">@dimen/listview_separate_line_margin</item>
     </style>
 
     <!-- Personal Row -->
@@ -54,6 +54,45 @@
         <item name="android:layout_alignParentRight">true</item>
         <item name="android:layout_marginRight">@dimen/personal_row_arrow_margin_right</item>
         <item name="android:src">@mipmap/one_details_page_arrowhead</item>
+    </style>
+
+    <!-- Setting -->
+    <style name="SettingListViewRowLayout">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/setting_row_height</item>
+        <item name="android:layout_marginBottom">1dp</item>
+        <item name="android:layout_marginTop">1dp</item>
+        <item name="android:background">@drawable/listview_item_selector</item>
+    </style>
+
+    <style name="SettingSectionHeadTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">20dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:textColor">@color/one_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SettingListViewSeparateLine" parent="ListViewSeparateLine">
+        <!--<item name="android:layout_marginTop">8dp</item>-->
+    </style>
+
+    <style name="SettingListViewHintTextView">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_centerVertical">true</item>
+        <item name="android:layout_marginBottom">10dp</item>
+        <item name="android:layout_marginLeft">15dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+        <item name="android:textColor">@color/setting_hint_text_color</item>
+        <item name="android:textSize">16sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="SettingRowRightArrow" parent="PersonRowRightArrow">
     </style>
 
 </resources>

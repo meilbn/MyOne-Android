@@ -23,7 +23,7 @@
 
     </RelativeLayout>
 
-    <View style="@style/Line_Horizontal" />
+    <View style="@style/ListViewSeparateLine" />
 
     <RelativeLayout
         android:id="@id/personal_settings_rl"
@@ -43,7 +43,7 @@
 
     </RelativeLayout>
 
-    <View style="@style/Line_Horizontal" />
+    <View style="@style/ListViewSeparateLine" />
 
     <RelativeLayout
         android:id="@id/personal_about_rl"
@@ -63,6 +63,6 @@
 
     </RelativeLayout>
 
-    <View style="@style/Line_Horizontal" />
+    <View style="@style/ListViewSeparateLine" />
 
 </LinearLayout>

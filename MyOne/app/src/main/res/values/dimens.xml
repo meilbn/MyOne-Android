@@ -2,6 +2,8 @@
 
     <!-- Common -->
     <dimen name="default_elevation">8dp</dimen>
+    <dimen name="listview_separate_line_height">1dp</dimen>
+    <dimen name="listview_separate_line_margin">15dp</dimen>
 
     <!-- Main -->
     <dimen name="main_bottom_tabbar_height">56dp</dimen>
@@ -9,12 +11,13 @@
     <dimen name="main_bottom_tabbar_test_size">10sp</dimen>
 
     <!-- Personal -->
-    <dimen name="personal_row_separator_line_height">1dp</dimen>
-    <dimen name="personal_row_separator_line_margin">15dp</dimen>
     <dimen name="personal_row_height">60dp</dimen>
     <dimen name="personal_row_icon_margin_left">20dp</dimen>
     <dimen name="personal_row_textview_margin_left">10dp</dimen>
     <dimen name="personal_row_arrow_margin_right">20dp</dimen>
+
+    <!-- Setting -->
+    <dimen name="setting_row_height">45dp</dimen>
 
     <!-- Other -->
     <dimen name="button_height">45.0dip</dimen>
