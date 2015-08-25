@@ -182,7 +182,6 @@ public class MainActivity extends BaseActivity {
             R.id.main_bottom_tabbar_question_tv, R.id.main_bottom_tabbar_thing_tv, R.id.main_bottom_tabbar_personal_tv})
     public void onClick(View v) {
         setSelectBottomItem(v.getId());
-
         switch (v.getId()) {
             case R.id.main_bottom_tabbar_home_tv:
                 showFragment(TAG_PAGE_HOME);

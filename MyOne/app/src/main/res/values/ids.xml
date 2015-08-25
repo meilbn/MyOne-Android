@@ -23,7 +23,7 @@
 
 
     <!-- Reading -->
-
+    <item name="viewPager" type="id"/>
 
     <!-- Question -->
 

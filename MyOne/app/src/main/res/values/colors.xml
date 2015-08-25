@@ -1,6 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
+    <!--普通字体颜色-->
+    <color name="textPrimary">#212121</color>
+    <!--减淡文字颜色-->
+    <color name="textSecondary">#727272</color>
+    <!--禁用文字/提示文字颜色-->
+    <color name="dis_hint_text">#42000000</color>
+
     <!-- Common -->
     <color name="white">#FFFFFFFF</color>
     <color name="black">#FF000000</color>
