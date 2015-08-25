@@ -3,6 +3,7 @@ package com.mylody.myone.application;
 import android.app.Application;
 
 import com.mylody.myone.BuildConfig;
+import com.mylody.myone.http.RequestManager;
 
 import timber.log.Timber;
 
@@ -19,6 +20,7 @@ public class MyOneApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        RequestManager.init(this);
         if (BuildConfig.DEBUG) {
             Timber.plant(new Timber.DebugTree());
         } else {

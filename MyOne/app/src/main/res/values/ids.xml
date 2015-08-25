@@ -23,7 +23,10 @@
 
 
     <!-- Reading -->
-    <item name="viewPager" type="id"/>
+    <item name="readingRefreshViewPager" type="id"/>
+    <item name="tvContent" type="id"/>
+    <item name="tvAuthorAndWbN" type="id"/>
+    <item name="llContentParent" type="id"/>
 
     <!-- Question -->
 
@@ -32,42 +35,42 @@
 
 
     <!-- Personal -->
-    <item name="personal_login_rl" type="id" />
-    <item name="personal_settings_rl" type="id" />
-    <item name="personal_about_rl" type="id" />
-    <item name="personal_login_user_icon_iv" type="id" />
-    <item name="personal_settings_iv" type="id" />
-    <item name="personal_about_iv" type="id" />
+    <item name="personal_login_rl" type="id"/>
+    <item name="personal_settings_rl" type="id"/>
+    <item name="personal_about_rl" type="id"/>
+    <item name="personal_login_user_icon_iv" type="id"/>
+    <item name="personal_settings_iv" type="id"/>
+    <item name="personal_about_iv" type="id"/>
 
     <!-- Setting -->
-    <item name="glance_over_set" type="id" />
-    <item name="setting_separate_line0" type="id" />
-    <item name="setting_separate_line1" type="id" />
-    <item name="setting_separate_line2" type="id" />
-    <item name="setting_separate_line3" type="id" />
-    <item name="setting_separate_line4" type="id" />
-    <item name="setting_separate_line5" type="id" />
-    <item name="setting_separate_line6" type="id" />
-    <item name="setting_separate_line7" type="id" />
-    <item name="setting_separate_line8" type="id" />
-    <item name="night_model_layout" type="id" />
-    <item name="night_model_change_hint" type="id" />
-    <item name="night_model_open_icon" type="id" />
-    <item name="account_number_set" type="id" />
-    <item name="setting_more_hint" type="id" />
-    <item name="go_grade_layout" type="id" />
-    <item name="go_grade_hint" type="id" />
-    <item name="setting_feedback_layout" type="id" />
-    <item name="setting_feedback_hint" type="id" />
-    <item name="setting_user_agreement_layout" type="id" />
-    <item name="setting_user_agreement_hint" type="id" />
-    <item name="setting_version_layout" type="id" />
-    <item name="setting_version_hint" type="id" />
-    <item name="setting_version_number" type="id" />
-    <item name="setting_log_out_layout" type="id" />
-    <item name="setting_log_out_hint" type="id" />
+    <item name="glance_over_set" type="id"/>
+    <item name="setting_separate_line0" type="id"/>
+    <item name="setting_separate_line1" type="id"/>
+    <item name="setting_separate_line2" type="id"/>
+    <item name="setting_separate_line3" type="id"/>
+    <item name="setting_separate_line4" type="id"/>
+    <item name="setting_separate_line5" type="id"/>
+    <item name="setting_separate_line6" type="id"/>
+    <item name="setting_separate_line7" type="id"/>
+    <item name="setting_separate_line8" type="id"/>
+    <item name="night_model_layout" type="id"/>
+    <item name="night_model_change_hint" type="id"/>
+    <item name="night_model_open_icon" type="id"/>
+    <item name="account_number_set" type="id"/>
+    <item name="setting_more_hint" type="id"/>
+    <item name="go_grade_layout" type="id"/>
+    <item name="go_grade_hint" type="id"/>
+    <item name="setting_feedback_layout" type="id"/>
+    <item name="setting_feedback_hint" type="id"/>
+    <item name="setting_user_agreement_layout" type="id"/>
+    <item name="setting_user_agreement_hint" type="id"/>
+    <item name="setting_version_layout" type="id"/>
+    <item name="setting_version_hint" type="id"/>
+    <item name="setting_version_number" type="id"/>
+    <item name="setting_log_out_layout" type="id"/>
+    <item name="setting_log_out_hint" type="id"/>
 
     <!-- About -->
-    <item name="about_webview" type="id" />
+    <item name="about_webview" type="id"/>
 
 </resources>

@@ -2,25 +2,33 @@ package com.mylody.myone.ui.fragment;
 
 
 import android.os.Bundle;
+import android.os.Handler;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.handmark.pulltorefresh.library.PullToRefreshBase;
+import com.handmark.pulltorefresh.library.extras.viewpager.PullToRefreshViewPager;
 import com.mylody.myone.R;
+
+import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ReadingFragment extends Fragment {
+public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRefreshListener2 {
 
+    private final long mCurrentTimeMillis;
 
+    private PullToRefreshViewPager mPullToRefreshViewPager;
     private ViewPager mViewPager;
 
     public ReadingFragment() {
+        mCurrentTimeMillis = System.currentTimeMillis();
         // Required empty public constructor
     }
 
@@ -36,33 +44,56 @@ public class ReadingFragment extends Fragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        mViewPager = (ViewPager) view.findViewById(R.id.viewPager);
-
+        mPullToRefreshViewPager = (PullToRefreshViewPager) view.findViewById(R.id.readingRefreshViewPager);
+        mPullToRefreshViewPager.setOnRefreshListener(this);
+        mViewPager = mPullToRefreshViewPager.getRefreshableView();
         mViewPager.setAdapter(new ReadingItemAdapter(getActivity().getSupportFragmentManager()));
 
     }
 
+    @Override
+    public void onPullDownToRefresh(PullToRefreshBase refreshView) {
+        Timber.d("最左");
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPullToRefreshViewPager.onRefreshComplete();
+            }
+        }, 1000);
+    }
 
-    private static class ReadingItemAdapter extends FragmentPagerAdapter {
+    @Override
+    public void onPullUpToRefresh(PullToRefreshBase refreshView) {
+        Timber.d("最右");
+        new Handler().postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mPullToRefreshViewPager.onRefreshComplete();
+            }
+        }, 1000);
+    }
 
-        private Fragment[] mFragment;
+
+    private class ReadingItemAdapter extends FragmentStatePagerAdapter {
+
+        private Fragment[] mFragments;
 
         public ReadingItemAdapter(FragmentManager fm) {
             super(fm);
-            mFragment = new Fragment[10];
-            for (int i = 0; i < mFragment.length; i++) {
-                mFragment[i] = new ReadingItemFragment();
-            }
+            mFragments = new Fragment[10];
         }
 
         @Override
         public Fragment getItem(int position) {
-            return mFragment[position];
+            if (mFragments[position] == null) {
+                mFragments[position] = ReadingItemFragment.newInstance(position, mCurrentTimeMillis);
+            }
+            return mFragments[position];
         }
 
         @Override
         public int getCount() {
-            return mFragment.length;
+            return mFragments.length;
         }
     }
 
