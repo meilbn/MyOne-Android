@@ -5,11 +5,16 @@
     <dimen name="default_elevation">8dp</dimen>
     <dimen name="listview_separate_line_height">1dp</dimen>
     <dimen name="listview_separate_line_margin">15dp</dimen>
+    <dimen name="market_time_tv_margin">15dp</dimen>
+    <dimen name="market_time_tv_text_size">13sp</dimen>
 
     <!-- Main -->
     <dimen name="main_bottom_tabbar_height">56dp</dimen>
     <dimen name="main_bottom_tabbar_drawable_padding">4dp</dimen>
     <dimen name="main_bottom_tabbar_test_size">10sp</dimen>
+
+    <!-- Home -->
+    <dimen name="paint_info_tv_text_size">14sp</dimen>
 
     <!-- Personal -->
     <dimen name="personal_row_height">60dp</dimen>

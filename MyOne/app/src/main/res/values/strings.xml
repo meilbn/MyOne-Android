@@ -32,5 +32,8 @@
     <string name="setting_version_hint_text">版本号</string>
     <string name="setting_log_out_hint_text">退出当前帐号</string>
 
+<!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
 
 </resources>

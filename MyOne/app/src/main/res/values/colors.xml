@@ -31,6 +31,9 @@
     <color name="main_tabbar_background_color">#FFF5F5F5</color>
     <color name="main_tabbar_selected_text_color">#FF37C4F2</color>
 
+    <!-- Home -->
+    <color name="home_page_author">#FF838383</color>
+
     <!-- Setting -->
     <color name="one_text_color">#FF4C4D4E</color>
     <color name="setting_hint_text_color">#FF838383</color>
@@ -43,7 +46,7 @@
     <color name="text_color_h">#ffdbdad5</color>
     <color name="dimgray">#ff696969</color>
     <color name="text_color_normal">#ff666666</color>
-    <color name="home_page_author">#ff838383</color>
+
     <color name="home_page_date">#ffaaaaaa</color>
     <color name="welcomeBackground">#fff4f5f7</color>
     <color name="share_edit_textcolor">#fff3f3f3</color>

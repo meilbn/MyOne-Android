@@ -11,7 +11,7 @@ import com.mylody.myone.util.ActivityCollector;
 import butterknife.ButterKnife;
 
 /**
- * User: meilebin
+ * User: HappyHacking
  * Date: 2015-08-12
  * Time: 11:19
  * Description:

@@ -20,7 +20,26 @@
     <item name="main_bottom_tabbar_personal_tv" type="id"/>
 
     <!-- Home -->
+    <item name="home_page_item_linearlayout" type="id"/>
+    <item name="home_page_item_vol_tv" type="id"/>
+    <item name="home_page_item_paint_iv" type="id"/>
+    <item name="home_page_item_day_tv" type="id"/>
+    <item name="home_page_item_month_and_year_tv" type="id"/>
+    <item name="date_linearlayout" type="id"/>
 
+    <item name="fPage_tView" type="id"/>
+    <item name="loader_imag01" type="id"/>
+    <item name="loader_imag02" type="id"/>
+    <item name="imageBelow_tView" type="id"/>
+    <item name="imageBelow_tView1" type="id"/>
+    <item name="relativeLayout1" type="id"/>
+
+    <item name="date_tView" type="id"/>
+    <item name="date1_tView" type="id"/>
+    <item name="new_tView" type="id"/>
+    <item name="homepage_laud_icon" type="id"/>
+    <item name="homepage_laud_num" type="id"/>
+    <item name="home_page_laud_layout" type="id"/>
 
     <!-- Reading -->
     <item name="readingRefreshViewPager" type="id"/>
@@ -32,7 +51,7 @@
 
 
     <!-- Thing -->
-
+    <item name="thing_viewpager" type="id" />
 
     <!-- Personal -->
     <item name="personal_login_rl" type="id"/>

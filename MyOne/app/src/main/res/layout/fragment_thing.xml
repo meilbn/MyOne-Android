@@ -1,13 +1,13 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
     <include layout="@layout/include_default_title_bar" />
 
-    <TextView
+    <android.support.v4.view.ViewPager
+        android:id="@id/thing_viewpager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/main_tabbar_thing_text"
-        android:gravity="center"/>
+        android:layout_height="match_parent" />
 
-</FrameLayout>
+</LinearLayout>

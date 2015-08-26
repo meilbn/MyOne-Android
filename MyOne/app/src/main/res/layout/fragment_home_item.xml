@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:scrollbars="none">
+
+    <LinearLayout
+        android:id="@id/home_page_item_linearlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@id/home_page_item_vol_tv"
+            style="@style/VOLTextView" />
+
+        <FrameLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/market_time_tv_margin"
+            android:layout_marginRight="@dimen/market_time_tv_margin"
+            android:background="#FFDBDAD5">
+
+            <ImageView
+                android:id="@id/loader_imag01"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@mipmap/loader_icon"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@id/loader_imag02"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:contentDescription="@null"
+                android:src="@mipmap/loader_icon"
+                android:visibility="invisible" />
+
+            <ImageView
+                android:id="@id/home_page_item_paint_iv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:adjustViewBounds="true"
+                android:background="@android:color/transparent"
+                android:contentDescription="@null"
+                android:scaleType="fitXY" />
+
+        </FrameLayout>
+
+        <TextView
+            android:id="@id/imageBelow_tView"
+            style="@style/PaintInfoTextView"
+            android:layout_marginTop="20dp"
+            android:text="Paint Name" />
+
+        <TextView
+            android:id="@id/imageBelow_tView1"
+            style="@style/PaintInfoTextView"
+            android:text="Paint Author" />
+
+        <RelativeLayout
+            android:id="@id/relativeLayout1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="@dimen/market_time_tv_margin"
+            android:layout_marginRight="@dimen/market_time_tv_margin"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@id/date_linearlayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@id/home_page_item_day_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="08"
+                    android:textColor="@color/skyblue"
+                    android:textSize="36sp"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@id/home_page_item_month_and_year_tv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:text="Aug,2015"
+                    android:textColor="@color/home_page_date"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@id/new_tView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="right"
+                android:layout_marginLeft="@dimen/market_time_tv_margin"
+                android:layout_toRightOf="@id/date_linearlayout"
+                android:background="@mipmap/one_home_page_text"
+                android:gravity="left"
+                android:lineSpacingMultiplier="1.3"
+                android:minHeight="48dp"
+                android:textColor="@color/white" />
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@id/home_page_laud_layout"
+            style="@style/LaudLinearLayout"
+            android:onClick="homepageLaudClick">
+
+            <ImageView
+                android:id="@id/homepage_laud_icon"
+                style="@style/LaudImageView" />
+
+            <TextView
+                android:id="@id/homepage_laud_num"
+                style="@style/LaudNumberTextView"
+                android:text="9999" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
