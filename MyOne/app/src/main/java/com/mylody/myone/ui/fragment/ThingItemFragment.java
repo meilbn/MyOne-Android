@@ -71,7 +71,7 @@ public class ThingItemFragment extends Fragment implements ThingModel.ThingCallb
     }
 
     /**
-     * 获取首页内容成功
+     * 获取东西内容成功
      * @param bean
      */
     @Override
@@ -104,7 +104,7 @@ public class ThingItemFragment extends Fragment implements ThingModel.ThingCallb
     }
 
     /**
-     * 获取首页内容失败
+     * 获取东西内容失败
      */
     @Override
     public void getOneThingEntityFailed() {

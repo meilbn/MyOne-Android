@@ -21,7 +21,6 @@ import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
-import com.handmark.pulltorefresh.library.R;
 
 public class PullToRefreshViewPager extends PullToRefreshBase<ViewPager> {
 
@@ -41,7 +40,7 @@ public class PullToRefreshViewPager extends PullToRefreshBase<ViewPager> {
 	@Override
 	protected ViewPager createRefreshableView(Context context, AttributeSet attrs) {
 		ViewPager viewPager = new ViewPager(context, attrs);
-		viewPager.setId(R.id.viewpager);
+//		viewPager.setId(R.id.viewpager);
 		return viewPager;
 	}
 
