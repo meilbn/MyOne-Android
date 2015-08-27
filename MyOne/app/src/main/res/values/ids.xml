@@ -52,7 +52,14 @@
 
 
     <!-- Thing -->
-    <item name="thing_viewpager" type="id" />
+    <item name="thingRefreshViewPager" type="id" />
+    <item name="thingPageItemLinearLayout" type="id"/>
+    <item name="thingPageItemMarketTimeTV" type="id"/>
+    <item name="thingPageItemLoader0" type="id"/>
+    <item name="thingPageItemLoader1" type="id"/>
+    <item name="thingPageItemImageIV" type="id"/>
+    <item name="thingPageItemThingTitleTV" type="id"/>
+    <item name="thingPageItemThingDescriptionTV" type="id"/>
 
     <!-- Personal -->
     <item name="personal_login_rl" type="id"/>

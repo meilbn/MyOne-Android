@@ -13,4 +13,10 @@ public class HttpConstant {
 
     /*文章接口*/
     public static final String READING_GET_ONE_CONTENT_INFO = "getOneContentInfo";
+
+    /*问题接口*/
+    public static final String QUESTION_GET_ONE_ENTITY = "getOneQuestionInfo";
+
+    /*东西接口*/
+    public static final String THING_GET_ONE_ENTITY = "o_f";
 }

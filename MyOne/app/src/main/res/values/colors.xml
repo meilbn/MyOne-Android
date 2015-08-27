@@ -34,6 +34,9 @@
     <!-- Home -->
     <color name="home_page_author">#FF838383</color>
 
+    <!-- Thing -->
+    <color name="thing_page_title_color">#ff5b5b5d</color>
+
     <!-- Setting -->
     <color name="one_text_color">#FF4C4D4E</color>
     <color name="setting_hint_text_color">#FF838383</color>
@@ -53,7 +56,7 @@
     <color name="text_color_b">#ff444444</color>
     <color name="user_answer_laud_color">#ffa6a5a1</color>
     <color name="register_bg_color">#ff179bed</color>
-    <color name="stow_thing_title_color">#ff5b5b5d</color>
+
     <color name="translucent_background">#30000000</color>
     <color name="default_bg_color">#fff4f5f7</color>
     <color name="share_dialog_day_background">#ffffffff</color>

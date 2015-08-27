@@ -1,13 +1,18 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:ptr="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
     <include layout="@layout/include_default_title_bar" />
 
-    <android.support.v4.view.ViewPager
-        android:id="@id/thing_viewpager"
+    <com.handmark.pulltorefresh.library.extras.viewpager.PullToRefreshViewPager
+        android:id="@id/thingRefreshViewPager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        ptr:ptrAnimationStyle="rotate_and_anim"
+        ptr:ptrDrawable="@drawable/loading_01"
+        ptr:ptrMode="both"
+        ptr:ptrScrollingWhileRefreshingEnabled="false" />
 
 </LinearLayout>

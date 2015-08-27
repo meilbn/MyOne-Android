@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+
+        <variable
+            name="entTg"
+            type="com.mylody.myone.bean.ThingBean.EntTg" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:id="@id/thingPageItemLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="invisible">
+
+            <TextView
+                android:id="@id/thingPageItemMarketTimeTV"
+                style="@style/MarketTimeTextView"
+                android:text="@{entTg.strMarketTime}" />
+
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/market_time_tv_margin"
+                android:layout_marginRight="@dimen/market_time_tv_margin"
+                android:background="#FFDBDAD5">
+
+                <ImageView
+                    android:id="@id/thingPageItemLoader0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/loader_icon"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@id/thingPageItemLoader1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/loader_icon"
+                    android:visibility="invisible" />
+
+                <ImageView
+                    android:id="@id/thingPageItemImageIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY" />
+
+            </FrameLayout>
+
+            <TextView
+                android:id="@id/thingPageItemThingTitleTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/market_time_tv_margin"
+                android:layout_marginRight="@dimen/market_time_tv_margin"
+                android:layout_marginTop="@dimen/market_time_tv_margin"
+                android:text="@{entTg.strTt}"
+                android:textColor="@color/thing_page_title_color"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@id/thingPageItemThingDescriptionTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/market_time_tv_margin"
+                android:layout_marginLeft="@dimen/market_time_tv_margin"
+                android:layout_marginRight="@dimen/market_time_tv_margin"
+                android:layout_marginTop="70dp"
+                android:lineSpacingMultiplier="1.2"
+                android:text="@{entTg.strTc}"
+                android:textColor="#FF5D5D5D"
+                android:textSize="15sp" />
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</layout>
