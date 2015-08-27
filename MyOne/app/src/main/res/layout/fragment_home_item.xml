@@ -1,137 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:scrollbars="none">
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <LinearLayout
-        android:id="@id/home_page_item_linearlayout"
+    <data>
+        <variable
+            name="hpEntity"
+            type="com.mylody.myone.bean.HomeBean.HpEntity"/>
+    </data>
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:orientation="vertical"
-        android:visibility="visible">
+        android:layout_height="match_parent"
+        android:scrollbars="none">
 
-        <TextView
-            android:id="@id/home_page_item_vol_tv"
-            style="@style/VOLTextView" />
-
-        <FrameLayout
+        <LinearLayout
+            android:id="@id/homePageItemLinearLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="@dimen/market_time_tv_margin"
-            android:layout_marginRight="@dimen/market_time_tv_margin"
-            android:background="#FFDBDAD5">
+            android:layout_gravity="center_horizontal"
+            android:orientation="vertical"
+            android:visibility="invisible">
 
-            <ImageView
-                android:id="@id/loader_imag01"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@mipmap/loader_icon"
-                android:visibility="invisible" />
+            <TextView
+                android:id="@id/homePageItemVOLTV"
+                style="@style/VOLTextView"
+                android:text="@{hpEntity.strHpTitle}"/>
 
-            <ImageView
-                android:id="@id/loader_imag02"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:contentDescription="@null"
-                android:src="@mipmap/loader_icon"
-                android:visibility="invisible" />
-
-            <ImageView
-                android:id="@id/home_page_item_paint_iv"
+            <FrameLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:contentDescription="@null"
-                android:scaleType="fitXY" />
+                android:layout_marginLeft="@dimen/market_time_tv_margin"
+                android:layout_marginRight="@dimen/market_time_tv_margin"
+                android:background="#FFDBDAD5">
 
-        </FrameLayout>
+                <ImageView
+                    android:id="@id/homePageItemLoader0"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/loader_icon"
+                    android:visibility="invisible" />
 
-        <TextView
-            android:id="@id/imageBelow_tView"
-            style="@style/PaintInfoTextView"
-            android:layout_marginTop="20dp"
-            android:text="Paint Name" />
+                <ImageView
+                    android:id="@id/homePageItemLoader1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:contentDescription="@null"
+                    android:src="@mipmap/loader_icon"
+                    android:visibility="invisible" />
 
-        <TextView
-            android:id="@id/imageBelow_tView1"
-            style="@style/PaintInfoTextView"
-            android:text="Paint Author" />
+                <ImageView
+                    android:id="@id/homePageItemPaintIV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:adjustViewBounds="true"
+                    android:background="@android:color/transparent"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY" />
 
-        <RelativeLayout
-            android:id="@id/relativeLayout1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:layout_marginLeft="@dimen/market_time_tv_margin"
-            android:layout_marginRight="@dimen/market_time_tv_margin"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
+            </FrameLayout>
+
+            <TextView
+                android:id="@id/paintNameTV"
+                style="@style/PaintInfoTextView"
+                android:layout_marginTop="20dp"
+                android:text="@{hpEntity.strPaintName}" />
+
+            <TextView
+                android:id="@id/paintAuthorTV"
+                style="@style/PaintInfoTextView"
+                android:text="@{hpEntity.strAuthor}" />
+
+            <RelativeLayout
+                android:id="@id/homePageItemDateAndTextRL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="@dimen/market_time_tv_margin"
+                android:layout_marginRight="@dimen/market_time_tv_margin"
+                android:layout_marginTop="10dp"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@id/homePageItemDateLL"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:id="@id/homePageItemDayTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:textColor="@color/skyblue"
+                        android:text="@{hpEntity.strDay}"
+                        android:textSize="36sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:id="@id/homePageItemMonthAndYearTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center"
+                        android:text="@{hpEntity.strMonthYear}"
+                        android:textColor="@color/home_page_date"
+                        android:textSize="12sp" />
+
+                </LinearLayout>
+
+                <TextView
+                    android:id="@id/homePageItemTextTV"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/market_time_tv_margin"
+                    android:layout_toRightOf="@id/homePageItemDateLL"
+                    android:background="@mipmap/one_home_page_text"
+                    android:gravity="left"
+                    android:lineSpacingMultiplier="1.3"
+                    android:minHeight="48dp"
+                    android:text="@{hpEntity.strContent}"
+                    android:textColor="@color/white" />
+
+            </RelativeLayout>
 
             <LinearLayout
-                android:id="@id/date_linearlayout"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:id="@id/homePageItemLaudLayout"
+                style="@style/LaudLinearLayout"
+                android:onClick="homepageLaudClick">
+
+                <ImageView
+                    android:id="@id/homePageItemLaudNumTV"
+                    style="@style/LaudImageView" />
 
                 <TextView
-                    android:id="@id/home_page_item_day_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="08"
-                    android:textColor="@color/skyblue"
-                    android:textSize="36sp"
-                    android:textStyle="bold" />
-
-                <TextView
-                    android:id="@id/home_page_item_month_and_year_tv"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="center"
-                    android:text="Aug,2015"
-                    android:textColor="@color/home_page_date"
-                    android:textSize="12sp" />
+                    android:id="@id/homePageItemLaudIconIV"
+                    style="@style/LaudNumberTextView"
+                    android:text="@{hpEntity.strPn}" />
 
             </LinearLayout>
 
-            <TextView
-                android:id="@id/new_tView"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="right"
-                android:layout_marginLeft="@dimen/market_time_tv_margin"
-                android:layout_toRightOf="@id/date_linearlayout"
-                android:background="@mipmap/one_home_page_text"
-                android:gravity="left"
-                android:lineSpacingMultiplier="1.3"
-                android:minHeight="48dp"
-                android:textColor="@color/white" />
-
-        </RelativeLayout>
-
-        <LinearLayout
-            android:id="@id/home_page_laud_layout"
-            style="@style/LaudLinearLayout"
-            android:onClick="homepageLaudClick">
-
-            <ImageView
-                android:id="@id/homepage_laud_icon"
-                style="@style/LaudImageView" />
-
-            <TextView
-                android:id="@id/homepage_laud_num"
-                style="@style/LaudNumberTextView"
-                android:text="9999" />
-
         </LinearLayout>
 
-    </LinearLayout>
-
-</ScrollView>
+    </ScrollView>
+</layout>

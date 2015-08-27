@@ -8,6 +8,10 @@ import android.view.WindowManager;
 
 import com.mylody.myone.application.MyOneApplication;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 /**
  * User:Shine
  * Date:2015-08-10
@@ -67,6 +71,34 @@ public class Utils {
     public static String getString(int resId) {
         Context context = MyOneApplication.getContext();
         return context.getString(resId);
+    }
+
+    public static String convertMarketTimeForHome(String marketTime) {
+        try {
+            SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd");
+            Date marketDate = formatString.parse(marketTime);
+            SimpleDateFormat formatDate = new SimpleDateFormat("dd MMM,yyyy");
+            String convertedMarketTime = formatDate.format(marketDate);
+
+            return convertedMarketTime;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "";
+        }
+    }
+
+    public static String convertMarketTimeForHomeElse(String marketTime) {
+        try {
+            SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd");
+            Date marketDate = formatString.parse(marketTime);
+            SimpleDateFormat formatDate = new SimpleDateFormat("MMMM dd, yyyy");
+            String convertedMarketTime = formatDate.format(marketDate);
+
+            return convertedMarketTime;
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return "";
+        }
     }
 
 }
