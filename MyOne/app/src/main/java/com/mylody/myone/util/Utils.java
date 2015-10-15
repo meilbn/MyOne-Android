@@ -11,6 +11,7 @@ import com.mylody.myone.application.MyOneApplication;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Locale;
 
 /**
  * User:Shine
@@ -75,9 +76,9 @@ public class Utils {
 
     public static String convertMarketTimeForHome(String marketTime) {
         try {
-            SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
             Date marketDate = formatString.parse(marketTime);
-            SimpleDateFormat formatDate = new SimpleDateFormat("dd MMM,yyyy");
+            SimpleDateFormat formatDate = new SimpleDateFormat("dd MMM,yyyy", Locale.US);
             String convertedMarketTime = formatDate.format(marketDate);
 
             return convertedMarketTime;
@@ -89,9 +90,9 @@ public class Utils {
 
     public static String convertMarketTimeForHomeElse(String marketTime) {
         try {
-            SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd");
+            SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
             Date marketDate = formatString.parse(marketTime);
-            SimpleDateFormat formatDate = new SimpleDateFormat("MMMM dd, yyyy");
+            SimpleDateFormat formatDate = new SimpleDateFormat("MMMM dd, yyyy", Locale.US);
             String convertedMarketTime = formatDate.format(marketDate);
 
             return convertedMarketTime;
