@@ -12,9 +12,7 @@
         android:id="@id/readingRefreshViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        ptr:ptrDrawable="@drawable/loading_01"
-        ptr:ptrMode="both"
-        ptr:ptrAnimationStyle="rotate_and_anim"
+        ptr:ptrMode="pullFromStart"
         ptr:ptrScrollingWhileRefreshingEnabled="false"/>
 
 </LinearLayout>

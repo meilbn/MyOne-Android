@@ -11,4 +11,9 @@ public class Constants {
     //毫秒数  一天
     public static final long MILLIS_DAY = 86400000;
 
+    public static final String REQUEST_SUCCESS = "SUCCESS";
+    public static final String REQUEST_ERROR = "ERROR";
+    public static final String REQUEST_LOADING = "LOADING";
+
+
 }

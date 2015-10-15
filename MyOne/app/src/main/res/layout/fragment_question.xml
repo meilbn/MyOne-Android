@@ -1,13 +1,14 @@
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+             xmlns:ptr="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="match_parent">
 
-    <include layout="@layout/include_default_title_bar" />
+    <include layout="@layout/include_default_title_bar"/>
 
-    <TextView
+    <com.handmark.pulltorefresh.library.extras.viewpager.PullToRefreshViewPager
+        android:id="@id/questionRefreshViewPager"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:text="@string/main_tabbar_question_text"
-        android:gravity="center"/>
-
+        ptr:ptrMode="both"
+        ptr:ptrScrollingWhileRefreshingEnabled="false"/>
 </FrameLayout>

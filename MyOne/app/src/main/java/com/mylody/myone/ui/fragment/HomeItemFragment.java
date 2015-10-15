@@ -22,16 +22,9 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.mylody.myone.R;
 import com.mylody.myone.bean.HomeBean;
-import com.mylody.myone.bean.ReadingBean;
 import com.mylody.myone.databinding.FragmentHomeItemBinding;
 import com.mylody.myone.module.HomeModel;
-import com.mylody.myone.util.Constants;
 import com.mylody.myone.util.Utils;
-
-import java.text.ParseException;
-
-import butterknife.ButterKnife;
-import butterknife.InjectView;
 
 /**
  * User: HappyHacking
@@ -51,7 +44,7 @@ public class HomeItemFragment extends Fragment implements HomeModel.HomeCallback
         // Required empty public constructor
     }
 
-    public static android.support.v4.app.Fragment newInstance(int position, long timeMillis) {
+    public static Fragment newInstance(int position, long timeMillis) {
         Fragment fragment = new HomeItemFragment();
         Bundle bundle = new Bundle();
         bundle.putInt(ARGS_ITEM_POSITION, position);

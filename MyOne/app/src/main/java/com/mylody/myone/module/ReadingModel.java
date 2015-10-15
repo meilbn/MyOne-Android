@@ -21,14 +21,14 @@ import timber.log.Timber;
 public class ReadingModel extends BaseModel {
 
     private final SimpleDateFormat mSimpleDateFormat;
-    private final long mTimeMillis;
+    private long mTimeMillis;
 
     public ReadingModel(long timeMillis) {
         mTimeMillis = timeMillis;
         mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     }
 
-    public void getOneContentInfo(int position, final ReadingCallback callback) {
+    public void getReadingContentInfo(final int position, final ReadingCallback callback) {
         long dateMillis = mTimeMillis - position * Constants.MILLIS_DAY;
         String strDate = mSimpleDateFormat.format(new Date(dateMillis));
         Timber.d("strDate:%s", strDate);
@@ -42,22 +42,35 @@ public class ReadingModel extends BaseModel {
         GsonRequest request = new GsonRequest<>(url, ReadingBean.class, new Response.Listener<ReadingBean>() {
             @Override
             public void onResponse(ReadingBean response) {
-                callback.getOneContentInfoSuccess(response);
+                callback.getReadingContentInfoSuccess(position, response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                callback.getOneContentInfoError();
+                callback.getReadingContentInfoError(position);
             }
         });
 
         executeRequest(request);
     }
 
-    public interface ReadingCallback {
-        void getOneContentInfoSuccess(ReadingBean bean);
+    public long getTimeMillis() {
+        return mTimeMillis;
+    }
 
-        void getOneContentInfoError();
+    public String getDateByTimeMillis(long timeMillis) {
+        String strDate = mSimpleDateFormat.format(new Date(timeMillis));
+        return strDate;
+    }
+
+    public void setTimeMillis(long timeMillis) {
+        mTimeMillis = timeMillis;
+    }
+
+    public interface ReadingCallback {
+        void getReadingContentInfoSuccess(int position, ReadingBean bean);
+
+        void getReadingContentInfoError(int position);
     }
 
 }

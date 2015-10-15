@@ -54,6 +54,7 @@
             <flag name="rotate" value="0x0"/>
             <flag name="flip" value="0x1"/>
             <flag name="rotate_and_anim" value="0x2"/>
+            <flag name="none" value="0x3"/>
         </attr>
 
         <!-- Whether the user can scroll while the View is Refreshing -->

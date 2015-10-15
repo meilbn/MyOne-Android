@@ -2,10 +2,7 @@ package com.mylody.myone.ui.fragment;
 
 
 import android.os.Bundle;
-import android.os.Handler;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,22 +11,33 @@ import android.view.ViewGroup;
 import com.handmark.pulltorefresh.library.PullToRefreshBase;
 import com.handmark.pulltorefresh.library.extras.viewpager.PullToRefreshViewPager;
 import com.mylody.myone.R;
+import com.mylody.myone.bean.ReadingBean;
+import com.mylody.myone.module.ReadingModel;
+import com.mylody.myone.ui.adapter.ReadingItemAdapter;
+import com.mylody.myone.util.Constants;
 
 import timber.log.Timber;
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRefreshListener2 {
-
-    private final long mCurrentTimeMillis;
+public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRefreshListener,
+        ReadingItemAdapter.OnLoadingListener, ReadingModel.ReadingCallback {
 
     private PullToRefreshViewPager mPullToRefreshViewPager;
     private ViewPager mViewPager;
+    private ReadingItemAdapter mAdapter;
+
+    private ReadingModel mModel;
+
+    private boolean isLoading = false;
+    private int mCurrentItem;
 
     public ReadingFragment() {
-        mCurrentTimeMillis = System.currentTimeMillis();
+        long timeMillis = System.currentTimeMillis();
+        mModel = new ReadingModel(timeMillis);
         // Required empty public constructor
+
     }
 
 
@@ -47,54 +55,91 @@ public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRef
         mPullToRefreshViewPager = (PullToRefreshViewPager) view.findViewById(R.id.readingRefreshViewPager);
         mPullToRefreshViewPager.setOnRefreshListener(this);
         mViewPager = mPullToRefreshViewPager.getRefreshableView();
-        mViewPager.setAdapter(new ReadingItemAdapter(getActivity().getSupportFragmentManager()));
+        mViewPager.setOverScrollMode(View.OVER_SCROLL_NEVER);
+
+        mAdapter = new ReadingItemAdapter(getActivity(), mViewPager);
+        mAdapter.setOnLoadingListener(this);
+        mViewPager.setAdapter(mAdapter);
+
+        mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+            @Override
+            public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+                if (mCurrentItem != position && positionOffset == 0 && mAdapter.dateIsEmpty(position)) {
+                    Timber.i("update page");
+                    mCurrentItem = position;
+                    mAdapter.updateViewByPosition(position);
+                }
+            }
+
+            @Override
+            public void onPageSelected(int position) {
+            }
+
+            @Override
+            public void onPageScrollStateChanged(int state) {
+
+            }
+        });
+    }
+
+    @Override
+    public void onRefresh(PullToRefreshBase refreshView) {
+        long oldTimeMillis = mModel.getTimeMillis();
+        long newTimeMillis = System.currentTimeMillis();
+
+        if (!mModel.getDateByTimeMillis(newTimeMillis).equals(mModel.getDateByTimeMillis(oldTimeMillis))) {
+            mModel.setTimeMillis(newTimeMillis);
+
+            mAdapter.clearData();
+            mAdapter.updateViewByPosition(mViewPager.getCurrentItem());
+        } else {
+            mPullToRefreshViewPager.onRefreshComplete();
+        }
+
 
     }
 
     @Override
-    public void onPullDownToRefresh(PullToRefreshBase refreshView) {
-        Timber.d("最左");
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mPullToRefreshViewPager.onRefreshComplete();
-            }
-        }, 1000);
+    public void onLoading(final int position) {
+        if (isLoading) {
+            Timber.d("正在加载中...");
+            return;
+        }
+        isLoading = true;
+        mModel.getReadingContentInfo(position, ReadingFragment.this);
+
     }
 
     @Override
-    public void onPullUpToRefresh(PullToRefreshBase refreshView) {
-        Timber.d("最右");
-        new Handler().postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                mPullToRefreshViewPager.onRefreshComplete();
-            }
-        }, 1000);
+    public void getReadingContentInfoSuccess(int position, ReadingBean bean) {
+        isLoading = false;
+        if (mPullToRefreshViewPager.isRefreshing()) {
+            mPullToRefreshViewPager.onRefreshComplete();
+            mAdapter.updateViewByPosition(position + 1);
+        }
+
+        int currentItem = mViewPager.getCurrentItem();
+
+        mAdapter.addItem(position, bean);
+
+        mAdapter.updateViewByPosition(position == currentItem + 1 ? position : currentItem);
+//        mAdapter.updateViewByPosition(currentItem);
     }
 
+    @Override
+    public void getReadingContentInfoError(int position) {
+        isLoading = false;
 
-    private class ReadingItemAdapter extends FragmentStatePagerAdapter {
+        int currentItem = mViewPager.getCurrentItem();
 
-        private Fragment[] mFragments;
+        ReadingBean readingBean = new ReadingBean();
 
-        public ReadingItemAdapter(FragmentManager fm) {
-            super(fm);
-            mFragments = new Fragment[10];
-        }
+        readingBean.setResult(Constants.REQUEST_ERROR);
 
-        @Override
-        public Fragment getItem(int position) {
-            if (mFragments[position] == null) {
-                mFragments[position] = ReadingItemFragment.newInstance(position, mCurrentTimeMillis);
-            }
-            return mFragments[position];
-        }
+        mAdapter.addItem(position, readingBean);
 
-        @Override
-        public int getCount() {
-            return mFragments.length;
-        }
+        mAdapter.updateViewByPosition(position == currentItem + 1 ? position : currentItem);
+//        mAdapter.updateViewByPosition(currentItem);
     }
 
 }

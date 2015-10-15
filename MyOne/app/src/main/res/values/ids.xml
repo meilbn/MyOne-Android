@@ -47,9 +47,13 @@
     <item name="tvContent" type="id"/>
     <item name="tvAuthorAndWbN" type="id"/>
     <item name="llContentParent" type="id"/>
+    <item name="pbLoading" type="id"/>
+    <item name="scrollView" type="id"/>
+    <item name="llLoadingFailure" type="id"/>
+    <item name="btnRetry" type="id"/>
 
     <!-- Question -->
-
+    <item name="questionRefreshViewPager" type="id"/>
 
     <!-- Thing -->
     <item name="thingRefreshViewPager" type="id" />

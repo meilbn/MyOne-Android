@@ -34,10 +34,7 @@ import android.view.animation.Interpolator;
 import android.widget.FrameLayout;
 import android.widget.LinearLayout;
 
-import com.handmark.pulltorefresh.library.internal.FlipLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.LoadingLayout;
-import com.handmark.pulltorefresh.library.internal.RotateAnimLoadingLayout;
-import com.handmark.pulltorefresh.library.internal.RotateLoadingLayout;
 import com.handmark.pulltorefresh.library.internal.Utils;
 import com.handmark.pulltorefresh.library.internal.ViewCompat;
 
@@ -1295,13 +1292,14 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
         ROTATE,
 
 
-        ROTATE_AND_ANIM,
+        ROTATE_AND_ANIM, NONE,
 
         /**
          * This is the old default, and what is commonly used on iOS. Uses an
          * arrow image which flips depending on where the user has scrolled.
          */
         FLIP;
+
 
         static AnimationStyle getDefault() {
             return ROTATE;
@@ -1316,27 +1314,67 @@ public abstract class PullToRefreshBase<T extends View> extends LinearLayout imp
          * @return Mode that modeInt maps to, or ROTATE by default.
          */
         static AnimationStyle mapIntToValue(int modeInt) {
-            switch (modeInt) {
-                case 0x0:
-                default:
-                    return ROTATE;
-                case 0x1:
-                    return FLIP;
-                case 0x2:
-                    return ROTATE_AND_ANIM;
-            }
+//            switch (modeInt) {
+//                default:
+//                case 0x0:
+//                    return ROTATE;
+//                case 0x1:
+//                    return FLIP;
+//                case 0x2:
+//                    return ROTATE_AND_ANIM;
+//            }
+            return NONE;
         }
 
         LoadingLayout createLoadingLayout(Context context, Mode mode, Orientation scrollDirection, TypedArray attrs) {
-            switch (this) {
-                case FLIP:
-                    return new FlipLoadingLayout(context, mode, scrollDirection, attrs);
-                case ROTATE_AND_ANIM:
-                    return new RotateAnimLoadingLayout(context, mode, scrollDirection, attrs);
-                case ROTATE:
-                default:
-                    return new RotateLoadingLayout(context, mode, scrollDirection, attrs);
-            }
+//            switch (this) {
+//                default:
+//                case FLIP:
+//                    return new FlipLoadingLayout(context, mode, scrollDirection, attrs);
+//                case ROTATE_AND_ANIM:
+//                    return new RotateAnimLoadingLayout(context, mode, scrollDirection, attrs);
+//                case ROTATE:
+//                    return new RotateLoadingLayout(context, mode, scrollDirection, attrs);
+//
+//            }
+
+            return new LoadingLayout(context, mode, scrollDirection, attrs) {
+                @Override
+                protected int getDefaultDrawableResId() {
+                    return 0;
+                }
+
+                @Override
+                protected void onLoadingDrawableSet(Drawable imageDrawable) {
+
+                }
+
+                @Override
+                protected void onPullImpl(float scaleOfLayout) {
+
+                }
+
+                @Override
+                protected void pullToRefreshImpl() {
+
+                }
+
+                @Override
+                protected void refreshingImpl() {
+
+                }
+
+                @Override
+                protected void releaseToRefreshImpl() {
+
+                }
+
+                @Override
+                protected void resetImpl() {
+
+                }
+            };
+
         }
     }
 
