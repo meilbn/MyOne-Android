@@ -12,9 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
-import android.widget.ScrollView;
 
-import com.google.gson.Gson;
 import com.mylody.myone.R;
 import com.mylody.myone.bean.ReadingBean;
 import com.mylody.myone.databinding.ItemReadingBinding;
@@ -22,8 +20,6 @@ import com.mylody.myone.util.Constants;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import timber.log.Timber;
 
 /**
  * User:Shine
