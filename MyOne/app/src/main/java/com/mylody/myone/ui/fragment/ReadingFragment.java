@@ -64,7 +64,7 @@ public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRef
         mViewPager.addOnPageChangeListener(new ViewPager.OnPageChangeListener() {
             @Override
             public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
-                if (mCurrentItem != position && positionOffset == 0 && mAdapter.dateIsEmpty(position)) {
+                if (mCurrentItem != position && positionOffset == 0 && mAdapter.dataIsEmpty(position)) {
                     Timber.i("update page");
                     mCurrentItem = position;
                     mAdapter.updateViewByPosition(position);

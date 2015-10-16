@@ -3,11 +3,6 @@ package com.mylody.myone.ui.adapter;
 import android.content.Context;
 import android.databinding.DataBindingUtil;
 import android.support.v4.view.ViewPager;
-import android.text.Html;
-import android.text.Spannable;
-import android.text.SpannableString;
-import android.text.style.AbsoluteSizeSpan;
-import android.text.style.ForegroundColorSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
@@ -26,7 +21,7 @@ import java.util.List;
  * Date:2015-10-14
  * Description:
  */
-public class ReadingItemAdapter extends BaseAdapter implements View.OnClickListener {
+public class ReadingItemAdapter extends BasePagerAdapter implements View.OnClickListener {
 
     private final LayoutInflater mInflater;
     private final List<ReadingBean> mData;
@@ -125,7 +120,7 @@ public class ReadingItemAdapter extends BaseAdapter implements View.OnClickListe
         }
     }
 
-    public boolean dateIsEmpty(int position) {
+    public boolean dataIsEmpty(int position) {
         return position >= mData.size();
     }
 

@@ -7,13 +7,13 @@ import android.view.ViewGroup;
 /**
  * Created by xuzb on 10/22/14.
  */
-public abstract class BaseAdapter extends PagerAdapter {
+public abstract class BasePagerAdapter extends PagerAdapter {
 
     private static final int MAX_VIEW_SIZE = 4;
 
     private View[] mViews;
 
-    public BaseAdapter() {
+    public BasePagerAdapter() {
         mViews = new View[MAX_VIEW_SIZE];
     }
 
