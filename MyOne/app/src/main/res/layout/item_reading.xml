@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout xmlns:android="http://schemas.android.com/apk/res/android">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
 
@@ -53,7 +54,8 @@
                     style="@style/TextView"
                     android:layout_marginLeft="@dimen/margin_medium"
                     android:layout_marginRight="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium"/>
+                    android:layout_marginTop="@dimen/margin_medium"
+                    app:htmlText="@{content.strContent}"/>
 
 
                 <TextView
@@ -79,7 +81,8 @@
                     style="@style/TextView"
                     android:layout_marginLeft="@dimen/margin_medium"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:textSize="18sp"/>
+                    android:textSize="18sp"
+                    app:authorAndWbN="@{content}"/>
 
                 <TextView
                     style="@style/TextView"

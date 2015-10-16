@@ -29,14 +29,12 @@ import java.util.List;
 public class ReadingItemAdapter extends BaseAdapter implements View.OnClickListener {
 
     private final LayoutInflater mInflater;
-    private final Context mContext;
     private final List<ReadingBean> mData;
     private final ViewPager mViewPager;
     private OnLoadingListener mOnLoadingListener;
 
 
     public ReadingItemAdapter(Context context, ViewPager viewPager) {
-        mContext = context;
         mInflater = LayoutInflater.from(context);
         mViewPager = viewPager;
         mData = new ArrayList<>();
@@ -60,22 +58,15 @@ public class ReadingItemAdapter extends BaseAdapter implements View.OnClickListe
         if (position < mData.size()) {
             ReadingBean readingBean = mData.get(position);
             ReadingBean.ContentEntity contentEntity = readingBean.getContentEntity();
-            if (contentEntity != null) {
+            if (contentEntity != null) {//设置内容
                 holder.mDataBinding.setContent(contentEntity);
 
                 holder.mDataBinding.scrollView.setVisibility(View.VISIBLE);
                 holder.pbLoading.setVisibility(View.GONE);
 
                 holder.mDataBinding.scrollView.scrollTo(0, 0);
-                holder.mDataBinding.tvContent.setText(Html.fromHtml(contentEntity.getStrContent()));
-                SpannableString spannableString = new SpannableString(contentEntity.getStrContAuthor() + " " + contentEntity.getSWbN());
-                //得到要改变颜色已经大小的文字开始位置
-                int spanStart = spannableString.toString().indexOf(contentEntity.getSWbN());
-                //改变文字大小
-                spannableString.setSpan(new AbsoluteSizeSpan(14, true), spanStart, spannableString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                //改变文字颜色
-                spannableString.setSpan(new ForegroundColorSpan(mContext.getResources().getColor(R.color.dis_hint_text)), spanStart, spannableString.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
-                holder.mDataBinding.tvAuthorAndWbN.setText(spannableString);
+
+
             } else if (readingBean.getResult().equals(Constants.REQUEST_ERROR)) {//加载错误，显示重新加载
                 holder.mDataBinding.scrollView.setVisibility(View.GONE);
                 holder.pbLoading.setVisibility(View.GONE);
