@@ -13,6 +13,7 @@ import com.handmark.pulltorefresh.library.extras.viewpager.PullToRefreshViewPage
 import com.mylody.myone.R;
 import com.mylody.myone.bean.ReadingBean;
 import com.mylody.myone.module.ReadingModel;
+import com.mylody.myone.ui.adapter.OnLoadingListener;
 import com.mylody.myone.ui.adapter.ReadingItemAdapter;
 import com.mylody.myone.util.Constants;
 
@@ -21,8 +22,8 @@ import timber.log.Timber;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRefreshListener,
-        ReadingItemAdapter.OnLoadingListener, ReadingModel.ReadingCallback {
+public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRefreshListener, OnLoadingListener,
+        ReadingModel.ReadingCallback {
 
     private PullToRefreshViewPager mPullToRefreshViewPager;
     private ViewPager mViewPager;
@@ -37,7 +38,6 @@ public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRef
         long timeMillis = System.currentTimeMillis();
         mModel = new ReadingModel(timeMillis);
         // Required empty public constructor
-
     }
 
 
@@ -123,7 +123,6 @@ public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRef
         mAdapter.addItem(position, bean);
 
         mAdapter.updateViewByPosition(position == currentItem + 1 ? position : currentItem);
-//        mAdapter.updateViewByPosition(currentItem);
     }
 
     @Override
@@ -139,7 +138,13 @@ public class ReadingFragment extends Fragment implements PullToRefreshBase.OnRef
         mAdapter.addItem(position, readingBean);
 
         mAdapter.updateViewByPosition(position == currentItem + 1 ? position : currentItem);
-//        mAdapter.updateViewByPosition(currentItem);
     }
 
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        if (mModel != null)
+            mModel.cancelAll();
+    }
 }

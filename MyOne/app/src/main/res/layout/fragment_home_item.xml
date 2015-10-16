@@ -127,8 +127,7 @@
 
             <LinearLayout
                 android:id="@id/homePageItemLaudLayout"
-                style="@style/LaudLinearLayout"
-                android:onClick="homepageLaudClick">
+                style="@style/LaudLinearLayout">
 
                 <ImageView
                     android:id="@id/homePageItemLaudNumTV"

@@ -5,9 +5,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <include layout="@layout/include_default_title_bar"/>
-
-
     <com.handmark.pulltorefresh.library.extras.viewpager.PullToRefreshViewPager
         android:id="@id/readingRefreshViewPager"
         android:layout_width="match_parent"

@@ -9,6 +9,7 @@
     <dimen name="market_time_tv_text_size">13sp</dimen>
     <dimen name="title_bar_height">48dp</dimen>
 
+    <dimen name="edge_distance">12dp</dimen>
     <!-- Main -->
     <dimen name="main_bottom_tabbar_height">56dp</dimen>
     <dimen name="main_bottom_tabbar_drawable_padding">4dp</dimen>

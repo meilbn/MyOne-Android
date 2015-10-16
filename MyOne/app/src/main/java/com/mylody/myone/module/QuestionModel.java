@@ -2,7 +2,7 @@ package com.mylody.myone.module;
 
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
-import com.mylody.myone.bean.ReadingBean;
+import com.mylody.myone.bean.QuestionBean;
 import com.mylody.myone.http.ApiParams;
 import com.mylody.myone.http.GsonRequest;
 import com.mylody.myone.http.HttpConstant;
@@ -15,39 +15,39 @@ import timber.log.Timber;
 
 /**
  * User:Shine
- * Date:2015-08-25
+ * Date:2015-10-16
  * Description:
  */
-public class ReadingModel extends BaseModel {
+public class QuestionModel extends BaseModel {
 
     private final SimpleDateFormat mSimpleDateFormat;
     private long mTimeMillis;
 
-    public ReadingModel(long timeMillis) {
+    public QuestionModel(long timeMillis) {
         mTimeMillis = timeMillis;
         mSimpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
     }
 
-    public void getReadingContentInfo(final int position, final ReadingCallback callback) {
+    public void getQuestionInfo(final int position, final QuestionCallback callback) {
         long dateMillis = mTimeMillis - position * Constants.MILLIS_DAY;
         String strDate = mSimpleDateFormat.format(new Date(dateMillis));
         Timber.d("strDate:%s", strDate);
 
         ApiParams params = new ApiParams();
-        params.setPath(HttpConstant.READING_GET_ONE_CONTENT_INFO);
+        params.setPath(HttpConstant.QUESTION_GET_ONE_ENTITY);
         params.put("strDate", strDate);
         params.put("strLastUpdateDate", strDate);
         String url = params.getUrl();
         Timber.d("请求文章接口:%s", url);
-        GsonRequest request = new GsonRequest<>(url, ReadingBean.class, new Response.Listener<ReadingBean>() {
+        GsonRequest request = new GsonRequest<>(url, QuestionBean.class, new Response.Listener<QuestionBean>() {
             @Override
-            public void onResponse(ReadingBean response) {
-                callback.getReadingContentInfoSuccess(position, response);
+            public void onResponse(QuestionBean response) {
+                callback.getQuestionInfoSuccess(position, response);
             }
         }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                callback.getReadingContentInfoError(position);
+                callback.getQuestionInfoError(position);
             }
         });
 
@@ -67,10 +67,10 @@ public class ReadingModel extends BaseModel {
         mTimeMillis = timeMillis;
     }
 
-    public interface ReadingCallback {
-        void getReadingContentInfoSuccess(int position, ReadingBean bean);
+    public interface QuestionCallback {
+        void getQuestionInfoSuccess(int position, QuestionBean bean);
 
-        void getReadingContentInfoError(int position);
+        void getQuestionInfoError(int position);
     }
 
 

@@ -3,8 +3,6 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 
-    <include layout="@layout/include_default_title_bar" />
-
     <RelativeLayout
         android:id="@id/personalLoginRL"
         style="@style/PersonRow">

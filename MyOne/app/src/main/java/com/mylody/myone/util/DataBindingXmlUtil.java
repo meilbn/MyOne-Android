@@ -12,6 +12,11 @@ import com.mylody.myone.R;
 import com.mylody.myone.application.MyOneApplication;
 import com.mylody.myone.bean.ReadingBean;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.Locale;
+
 /**
  * User:Shine
  * Date:2015-10-16
@@ -24,6 +29,22 @@ public class DataBindingXmlUtil {
     public static void setHtmlText(TextView textView, String htmlText) {
         if (textView != null && htmlText != null)
             textView.setText(Html.fromHtml(htmlText));
+    }
+
+    /*文章模块的正文内容*/
+    @BindingAdapter("usDate")
+    public static void setDateByUS(TextView textView, String marketTime) {
+        if (textView != null && marketTime != null) {
+            try {
+                SimpleDateFormat formatString = new SimpleDateFormat("yyyy-MM-dd", Locale.US);
+                Date marketDate = formatString.parse(marketTime);
+                SimpleDateFormat formatDate = new SimpleDateFormat("MMMM dd,yyyy", Locale.US);
+                String convertedMarketTime = formatDate.format(marketDate);
+                textView.setText(convertedMarketTime);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+        }
     }
 
     /*文章模块的作者以及@文字*/

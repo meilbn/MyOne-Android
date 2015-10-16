@@ -1,13 +1,105 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
 
-    <include layout="@layout/include_default_title_bar" />
+    <data>
 
-    <TextView
+        <variable
+            name="question"
+            type="com.mylody.myone.bean.QuestionBean.QuestionAdEntity"/>
+    </data>
+
+    <FrameLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/main_tabbar_question_text"
-        android:gravity="center"/>
+        android:layout_height="match_parent">
 
-</FrameLayout>
+        <ScrollView
+            android:id="@id/scrollView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:id="@id/llContentParent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textSize="12sp"
+                    app:usDate="@{question.strQuestionMarketTime}"
+                    tools:text="October 16,2015"/>
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:drawableLeft="@mipmap/ic_question_page_question_image"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:gravity="center"
+                    android:text="@{question.strQuestionTitle}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@{question.strQuestionContent}"/>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:background="@color/darkgray"/>
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_margin="@dimen/margin_medium"
+                    android:drawableLeft="@mipmap/ic_question_page_answer"
+                    android:drawablePadding="@dimen/padding_small"
+                    android:gravity="center"
+                    android:text="@{question.strAnswerTitle}"
+                    android:textStyle="bold"/>
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginRight="@dimen/margin_medium"
+                    app:htmlText="@{question.strAnswerContent}"/>
+
+                <TextView
+                    style="@style/TextView"
+                    android:layout_marginLeft="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_medium"
+                    android:text="@{question.sEditor}"/>
+
+                <LinearLayout
+                    android:layout_marginTop="2dp"
+                    android:id="@id/homePageItemLaudLayout"
+                    style="@style/LaudLinearLayout">
+
+                    <ImageView
+                        android:id="@id/homePageItemLaudNumTV"
+                        style="@style/LaudImageView"/>
+
+                    <TextView
+                        android:id="@id/homePageItemLaudIconIV"
+                        style="@style/LaudNumberTextView"
+                        android:text="@{question.strPraiseNumber}"/>
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <include layout="@layout/include_loaded_failure"/>
+
+    </FrameLayout>
+</layout>

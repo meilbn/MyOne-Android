@@ -9,8 +9,9 @@ import android.widget.Button;
 import android.widget.ProgressBar;
 
 import com.mylody.myone.R;
+import com.mylody.myone.bean.QuestionBean;
 import com.mylody.myone.bean.ReadingBean;
-import com.mylody.myone.databinding.ItemReadingBinding;
+import com.mylody.myone.databinding.ItemQuestionBinding;
 import com.mylody.myone.util.Constants;
 
 import java.util.ArrayList;
@@ -18,18 +19,17 @@ import java.util.List;
 
 /**
  * User:Shine
- * Date:2015-10-14
+ * Date:2015-10-16
  * Description:
  */
-public class ReadingItemAdapter extends BasePagerAdapter implements View.OnClickListener {
+public class QuestionItemAdapter extends BasePagerAdapter implements View.OnClickListener {
 
     private final LayoutInflater mInflater;
-    private final List<ReadingBean> mData;
+    private final List<QuestionBean> mData;
     private final ViewPager mViewPager;
     private OnLoadingListener mOnLoadingListener;
 
-
-    public ReadingItemAdapter(Context context, ViewPager viewPager) {
+    public QuestionItemAdapter(Context context, ViewPager viewPager) {
         mInflater = LayoutInflater.from(context);
         mViewPager = viewPager;
         mData = new ArrayList<>();
@@ -40,10 +40,9 @@ public class ReadingItemAdapter extends BasePagerAdapter implements View.OnClick
     public View getView(View contentView, int position) {
         ViewHolder holder;
         if (contentView == null) {
-            ItemReadingBinding dataBinding = DataBindingUtil.inflate(mInflater, R.layout.item_reading, null, false);
+            ItemQuestionBinding dataBinding = DataBindingUtil.inflate(mInflater, R.layout.item_question, null, false);
             contentView = dataBinding.getRoot();
             holder = new ViewHolder(contentView, dataBinding);
-
             holder.btnRetry.setOnClickListener(this);
             contentView.setTag(holder);
         } else {
@@ -51,10 +50,10 @@ public class ReadingItemAdapter extends BasePagerAdapter implements View.OnClick
         }
 
         if (position < mData.size()) {
-            ReadingBean readingBean = mData.get(position);
-            ReadingBean.ContentEntity contentEntity = readingBean.getContentEntity();
-            if (contentEntity != null) {//设置内容
-                holder.mDataBinding.setContent(contentEntity);
+            QuestionBean questionBean = mData.get(position);
+            QuestionBean.QuestionAdEntity questionAdEntity = questionBean.getQuestionAdEntity();
+            if (questionAdEntity != null) {//设置内容
+                holder.mDataBinding.setQuestion(questionAdEntity);
 
                 holder.mDataBinding.scrollView.setVisibility(View.VISIBLE);
                 holder.pbLoading.setVisibility(View.GONE);
@@ -62,12 +61,12 @@ public class ReadingItemAdapter extends BasePagerAdapter implements View.OnClick
                 holder.mDataBinding.scrollView.scrollTo(0, 0);
 
 
-            } else if (readingBean.getResult().equals(Constants.REQUEST_ERROR)) {//加载错误，显示重新加载
+            } else if (questionBean.getResult().equals(Constants.REQUEST_ERROR)) {//加载错误，显示重新加载
                 holder.mDataBinding.scrollView.setVisibility(View.GONE);
                 holder.pbLoading.setVisibility(View.GONE);
                 holder.llLoadingFailure.setVisibility(View.VISIBLE);
                 holder.btnRetry.setTag(position);
-            } else if (readingBean.getResult().equals(Constants.REQUEST_LOADING)) {//需要通过网络请求数据
+            } else if (questionBean.getResult().equals(Constants.REQUEST_LOADING)) {//需要通过网络请求数据
                 loading(position, holder);
             }
 
@@ -88,62 +87,60 @@ public class ReadingItemAdapter extends BasePagerAdapter implements View.OnClick
         }
     }
 
-
     @Override
     public int getCount() {
         return mData.size() + 1;
-    }
-
-    public void clearData() {
-        mData.clear();
-    }
-
-    public void addItem(int position, ReadingBean bean) {
-        if (position < mData.size()) {
-            ReadingBean readingBean = mData.get(position);
-            if (readingBean != null && readingBean.getContentEntity() == null) {
-                readingBean.setResult(Constants.REQUEST_SUCCESS);
-                readingBean.setContentEntity(bean.getContentEntity());
-            }
-        } else {
-            mData.add(bean);
-        }
-    }
-
-    @Override
-    public void onClick(View v) {
-        if (v.getId() == R.id.btnRetry) {
-            int position = (int) v.getTag();
-            ReadingBean readingBean = mData.get(position);
-            readingBean.setResult(Constants.REQUEST_LOADING);
-            updateViewByPosition(position);
-        }
     }
 
     public boolean dataIsEmpty(int position) {
         return position >= mData.size();
     }
 
+    public void clearData() {
+        mData.clear();
+    }
+
+    public void addItem(int position, QuestionBean bean) {
+        if (position < mData.size()) {
+            QuestionBean questionBean = mData.get(position);
+            if (questionBean != null && questionBean.getQuestionAdEntity() == null) {
+                questionBean.setResult(Constants.REQUEST_SUCCESS);
+                questionBean.setQuestionAdEntity(bean.getQuestionAdEntity());
+            }
+        } else {
+            mData.add(bean);
+        }
+    }
+
+
+    @Override
+    public void onClick(View v) {
+        if (v.getId() == R.id.btnRetry) {
+            int position = (int) v.getTag();
+            QuestionBean readingBean = mData.get(position);
+            readingBean.setResult(Constants.REQUEST_LOADING);
+            updateViewByPosition(position);
+        }
+    }
+
 
     public static class ViewHolder {
 
-        ItemReadingBinding mDataBinding;
+        ItemQuestionBinding mDataBinding;
 
         private ProgressBar pbLoading;
         private Button btnRetry;
         private View llLoadingFailure;
 
-        public ViewHolder(View contentView, ItemReadingBinding dataBinding) {
+        public ViewHolder(View contentView, ItemQuestionBinding dataBinding) {
             this.mDataBinding = dataBinding;
 
             this.pbLoading = (ProgressBar) contentView.findViewById(R.id.pbLoading);
             this.btnRetry = (Button) contentView.findViewById(R.id.btnRetry);
             this.llLoadingFailure = contentView.findViewById(R.id.llLoadingFailure);
         }
+
     }
-
-
-
 
     public void setOnLoadingListener(OnLoadingListener onLoadingListener) {
         mOnLoadingListener = onLoadingListener;

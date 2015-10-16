@@ -31,14 +31,15 @@
                 <TextView
                     style="@style/TextView"
                     android:layout_marginLeft="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@{content.strContMarketTime}"
-                    android:textSize="14sp"/>
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:textSize="12sp"
+                    app:usDate="@{content.strContMarketTime}"/>
 
                 <TextView
                     style="@style/TextView"
                     android:layout_marginLeft="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginTop="@dimen/margin_small"
+                    android:gravity="left"
                     android:text="@{content.strContTitle}"
                     android:textSize="18sp"
                     android:textStyle="bold"/>
@@ -46,7 +47,7 @@
                 <TextView
                     style="@style/TextView.Secondary"
                     android:layout_marginLeft="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_small"
+                    android:layout_marginTop="2dp"
                     android:text="@{content.strContAuthor}"/>
 
                 <TextView
@@ -54,7 +55,7 @@
                     style="@style/TextView"
                     android:layout_marginLeft="@dimen/margin_medium"
                     android:layout_marginRight="@dimen/margin_medium"
-                    android:layout_marginTop="@dimen/margin_medium"
+                    android:layout_marginTop="12dp"
                     app:htmlText="@{content.strContent}"/>
 
 
@@ -65,12 +66,25 @@
                     android:layout_marginTop="@dimen/margin_medium"
                     android:text="@{content.strContAuthorIntroduce}"/>
 
-                <TextView
-                    style="@style/TextView.Secondary"
-                    android:layout_gravity="right"
+
+                <LinearLayout
+                    android:id="@id/homePageItemLaudLayout"
+                    style="@style/LaudLinearLayout"
+                    android:layout_marginBottom="12dp"
                     android:layout_marginTop="@dimen/margin_medium"
-                    android:text="@{content.strPraiseNumber}"
-                    android:textSize="14sp"/>
+                    android:onClick="homepageLaudClick">
+
+                    <ImageView
+                        android:id="@id/homePageItemLaudNumTV"
+                        style="@style/LaudImageView"/>
+
+                    <TextView
+                        android:id="@id/homePageItemLaudIconIV"
+                        style="@style/LaudNumberTextView"
+                        android:text="@{content.strPraiseNumber}"/>
+
+                </LinearLayout>
+
 
                 <View
                     style="@style/ListViewSeparateLine"

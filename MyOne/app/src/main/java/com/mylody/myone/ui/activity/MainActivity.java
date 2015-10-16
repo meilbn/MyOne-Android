@@ -2,7 +2,6 @@ package com.mylody.myone.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
-import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -11,7 +10,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mylody.myone.R;
-import com.mylody.myone.databinding.ActivityMainBinding;
 import com.mylody.myone.ui.fragment.HomeFragment;
 import com.mylody.myone.ui.fragment.PersonalFragment;
 import com.mylody.myone.ui.fragment.QuestionFragment;
@@ -44,14 +42,12 @@ public class MainActivity extends BaseActivity {
 
     private String mCurrentTag;
 
-    private ActivityMainBinding mBinding;
-
     TextView[] mBottomTabBarItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        setContentView(R.layout.activity_main);
         mBottomTabBarItemList = new TextView[5];
         mBottomTabBarItemList[0] = (TextView) findViewById(R.id.mainBottomTabbarHomeTV);
         mBottomTabBarItemList[1] = (TextView) findViewById(R.id.mainBottomTabbarReadingTV);
