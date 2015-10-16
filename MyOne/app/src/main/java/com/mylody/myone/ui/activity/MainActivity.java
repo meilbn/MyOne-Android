@@ -2,6 +2,7 @@ package com.mylody.myone.ui.activity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.databinding.DataBindingUtil;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentTransaction;
@@ -10,15 +11,13 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.mylody.myone.R;
+import com.mylody.myone.databinding.ActivityMainBinding;
 import com.mylody.myone.ui.fragment.HomeFragment;
 import com.mylody.myone.ui.fragment.PersonalFragment;
 import com.mylody.myone.ui.fragment.QuestionFragment;
 import com.mylody.myone.ui.fragment.ReadingFragment;
 import com.mylody.myone.ui.fragment.ThingFragment;
 import com.mylody.myone.util.Utils;
-
-import butterknife.InjectViews;
-import butterknife.OnClick;
 
 public class MainActivity extends BaseActivity {
 
@@ -45,16 +44,22 @@ public class MainActivity extends BaseActivity {
 
     private String mCurrentTag;
 
-    @InjectViews({R.id.main_bottom_tabbar_home_tv, R.id.main_bottom_tabbar_reading_tv,
-            R.id.main_bottom_tabbar_question_tv, R.id.main_bottom_tabbar_thing_tv, R.id.main_bottom_tabbar_personal_tv})
+    private ActivityMainBinding mBinding;
+
     TextView[] mBottomTabBarItemList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        mBinding = DataBindingUtil.setContentView(this, R.layout.activity_main);
+        mBottomTabBarItemList = new TextView[5];
+        mBottomTabBarItemList[0] = (TextView) findViewById(R.id.mainBottomTabbarHomeTV);
+        mBottomTabBarItemList[1] = (TextView) findViewById(R.id.mainBottomTabbarReadingTV);
+        mBottomTabBarItemList[2] = (TextView) findViewById(R.id.mainBottomTabbarQuestionTV);
+        mBottomTabBarItemList[3] = (TextView) findViewById(R.id.mainBottomTabbarThingTV);
+        mBottomTabBarItemList[4] = (TextView) findViewById(R.id.mainBottomTabbarPersonalTV);
         // 默认显示首页
-        setSelectBottomItem(R.id.main_bottom_tabbar_home_tv);
+        setSelectBottomItem(R.id.mainBottomTabbarHomeTV);
         hideAllFragment();
         showFragment(TAG_PAGE_HOME);
     }
@@ -119,7 +124,7 @@ public class MainActivity extends BaseActivity {
         Fragment fragment = getSupportFragmentManager().findFragmentByTag(tag);
         if (fragment == null) {
             fragment = getFragmentInstance(tag);
-            transaction.add(R.id.main_container, fragment, tag);
+            transaction.add(R.id.mainContainer, fragment, tag);
         } else {
             transaction.show(fragment);
         }
@@ -178,24 +183,22 @@ public class MainActivity extends BaseActivity {
         return fragment;
     }
 
-    @OnClick({R.id.main_bottom_tabbar_home_tv, R.id.main_bottom_tabbar_reading_tv,
-            R.id.main_bottom_tabbar_question_tv, R.id.main_bottom_tabbar_thing_tv, R.id.main_bottom_tabbar_personal_tv})
     public void onClick(View v) {
         setSelectBottomItem(v.getId());
         switch (v.getId()) {
-            case R.id.main_bottom_tabbar_home_tv:
+            case R.id.mainBottomTabbarHomeTV:
                 showFragment(TAG_PAGE_HOME);
                 break;
-            case R.id.main_bottom_tabbar_reading_tv:
+            case R.id.mainBottomTabbarReadingTV:
                 showFragment(TAG_PAGE_READING);
                 break;
-            case R.id.main_bottom_tabbar_question_tv:
+            case R.id.mainBottomTabbarQuestionTV:
                 showFragment(TAG_PAGE_QUESTION);
                 break;
-            case R.id.main_bottom_tabbar_thing_tv:
+            case R.id.mainBottomTabbarThingTV:
                 showFragment(TAG_PAGE_THING);
                 break;
-            case R.id.main_bottom_tabbar_personal_tv:
+            case R.id.mainBottomTabbarPersonalTV:
                 showFragment(TAG_PAGE_PERSONAL);
                 break;
         }

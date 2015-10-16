@@ -1,22 +1,22 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical" >
 
     <include layout="@layout/include_default_title_bar" />
 
     <RelativeLayout
-        android:id="@id/personal_login_rl"
+        android:id="@id/personalLoginRL"
         style="@style/PersonRow">
 
         <ImageView
-            android:id="@id/personal_login_user_icon_iv"
+            android:id="@id/personalLoginUserIconIV"
             style="@style/PersonRowIcon"
             android:src="@mipmap/user_default_icon" />
 
         <TextView
             style="@style/PersonRowText"
-            android:layout_toRightOf="@id/personal_login_user_icon_iv"
+            android:layout_toRightOf="@id/personalLoginUserIconIV"
             android:text="@string/personal_login_text" />
 
         <ImageView style="@style/PersonRowRightArrow" />
@@ -26,17 +26,17 @@
     <View style="@style/ListViewSeparateLine" />
 
     <RelativeLayout
-        android:id="@id/personal_settings_rl"
+        android:id="@id/personalSettingsRL"
         style="@style/PersonRow">
 
         <ImageView
-            android:id="@id/personal_settings_iv"
+            android:id="@id/personalSettingsIV"
             style="@style/PersonRowIcon"
             android:src="@mipmap/setting" />
 
         <TextView
             style="@style/PersonRowText"
-            android:layout_toRightOf="@id/personal_settings_iv"
+            android:layout_toRightOf="@id/personalSettingsIV"
             android:text="@string/settings" />
 
         <ImageView style="@style/PersonRowRightArrow" />
@@ -46,17 +46,17 @@
     <View style="@style/ListViewSeparateLine" />
 
     <RelativeLayout
-        android:id="@id/personal_about_rl"
+        android:id="@id/personalAboutRL"
         style="@style/PersonRow">
 
         <ImageView
-            android:id="@id/personal_about_iv"
+            android:id="@id/personalAboutIV"
             style="@style/PersonRowIcon"
             android:src="@mipmap/copyright_default_icon" />
 
         <TextView
             style="@style/PersonRowText"
-            android:layout_toRightOf="@id/personal_about_iv"
+            android:layout_toRightOf="@id/personalAboutIV"
             android:text="@string/about" />
 
         <ImageView style="@style/PersonRowRightArrow" />

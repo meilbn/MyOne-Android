@@ -8,8 +8,6 @@ import android.view.ViewGroup;
 
 import com.mylody.myone.util.ActivityCollector;
 
-import butterknife.ButterKnife;
-
 /**
  * User: HappyHacking
  * Date: 2015-08-12
@@ -17,6 +15,7 @@ import butterknife.ButterKnife;
  * Description:
  */
 public class BaseActivity extends AppCompatActivity {
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,25 +26,21 @@ public class BaseActivity extends AppCompatActivity {
     protected void onDestroy() {
         super.onDestroy();
         ActivityCollector.removeActivity(this);
-        ButterKnife.reset(this);
     }
 
     @Override
     public void setContentView(int layoutResID) {
         super.setContentView(layoutResID);
-        ButterKnife.inject(this);
     }
 
     @Override
     public void setContentView(View view) {
         super.setContentView(view);
-        ButterKnife.inject(this);
     }
 
     @Override
     public void setContentView(View view, ViewGroup.LayoutParams params) {
         super.setContentView(view, params);
-        ButterKnife.inject(this);
     }
 
     @Override

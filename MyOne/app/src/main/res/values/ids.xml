@@ -2,7 +2,9 @@
 <resources>
 
     <!-- Title Bar -->
-    <item name="title_bar_right_button" type="id"/>
+    <item name="title_bar_return_layout" type="id"/>
+    <item name="title_bar_return_imageview" type="id"/>
+    <item name="title_bar_title_textview" type="id"/>
     <item name="title_bar_center_imageview" type="id"/>
 
     <!-- Back Title View-->
@@ -10,14 +12,14 @@
     <item name="back_title_view_title_tv" type="id"/>
 
     <!-- Main -->
-    <item name="main_container" type="id"/>
+    <item name="mainContainer" type="id"/>
 
     <!-- Main Bottom TabBar -->
-    <item name="main_bottom_tabbar_home_tv" type="id"/>
-    <item name="main_bottom_tabbar_reading_tv" type="id"/>
-    <item name="main_bottom_tabbar_question_tv" type="id"/>
-    <item name="main_bottom_tabbar_thing_tv" type="id"/>
-    <item name="main_bottom_tabbar_personal_tv" type="id"/>
+    <item name="mainBottomTabbarHomeTV" type="id"/>
+    <item name="mainBottomTabbarReadingTV" type="id"/>
+    <item name="mainBottomTabbarQuestionTV" type="id"/>
+    <item name="mainBottomTabbarThingTV" type="id"/>
+    <item name="mainBottomTabbarPersonalTV" type="id"/>
 
     <!-- Home -->
     <item name="homeRefreshViewPager" type="id"/>
@@ -66,12 +68,12 @@
     <item name="thingPageItemThingDescriptionTV" type="id"/>
 
     <!-- Personal -->
-    <item name="personal_login_rl" type="id"/>
-    <item name="personal_settings_rl" type="id"/>
-    <item name="personal_about_rl" type="id"/>
-    <item name="personal_login_user_icon_iv" type="id"/>
-    <item name="personal_settings_iv" type="id"/>
-    <item name="personal_about_iv" type="id"/>
+    <item name="personalLoginRL" type="id"/>
+    <item name="personalSettingsRL" type="id"/>
+    <item name="personalAboutRL" type="id"/>
+    <item name="personalLoginUserIconIV" type="id"/>
+    <item name="personalSettingsIV" type="id"/>
+    <item name="personalAboutIV" type="id"/>
 
     <!-- Setting -->
     <item name="glance_over_set" type="id"/>
@@ -102,6 +104,6 @@
     <item name="setting_log_out_hint" type="id"/>
 
     <!-- About -->
-    <item name="about_webview" type="id"/>
+    <item name="aboutWebView" type="id"/>
 
 </resources>

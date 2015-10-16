@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/title_bar_height"
+    android:background="@mipmap/one_title_bg">
+
+    <TextView
+        android:id="@id/title_bar_title_textview"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:src="@mipmap/one_title"
+        android:text="Title"
+        android:textColor="@color/one_text_color"
+        android:textSize="20sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:id="@id/title_bar_return_layout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_centerInParent="true"
+        android:onClick="onClickReturn">
+
+        <ImageView
+            android:id="@id/title_bar_return_imageview"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="11dp"
+            android:layout_marginRight="30dp"
+            android:layout_marginTop="8dp"
+            android:contentDescription="@null"
+            android:src="@mipmap/return_button" />
+
+    </LinearLayout>
+
+</RelativeLayout>

@@ -6,20 +6,20 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 
 import com.mylody.myone.R;
 import com.mylody.myone.ui.activity.AboutActivity;
 import com.mylody.myone.ui.activity.SettingActivity;
 
-import butterknife.ButterKnife;
-import butterknife.OnClick;
-
 /**
  * A simple {@link Fragment} subclass.
  */
-public class PersonalFragment extends Fragment {
+public class PersonalFragment extends Fragment implements View.OnClickListener {
 
-
+    private RelativeLayout mLoginRL;
+    private RelativeLayout mSettingsRL;
+    private RelativeLayout mAboutRL;
 
     public PersonalFragment() {
         // Required empty public constructor
@@ -31,22 +31,42 @@ public class PersonalFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_personal, container, false);
-        ButterKnife.inject(this, view);
+        mLoginRL = (RelativeLayout) view.findViewById(R.id.personalLoginRL);
+        mSettingsRL = (RelativeLayout) view.findViewById(R.id.personalSettingsRL);
+        mAboutRL = (RelativeLayout) view.findViewById(R.id.personalAboutRL);
+        mLoginRL.setOnClickListener(this);
+        mSettingsRL.setOnClickListener(this);
+        mAboutRL.setOnClickListener(this);
 
         return view;
     }
 
-    @OnClick(R.id.personal_login_rl)
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.personalLoginRL: {
+                onClickLogin();
+                break;
+            }
+            case R.id.personalSettingsRL: {
+                onClickSettings();
+                break;
+            }
+            case R.id.personalAboutRL: {
+                onClickAbout();
+                break;
+            }
+        }
+    }
+
     public void onClickLogin() {
 
     }
 
-    @OnClick(R.id.personal_settings_rl)
     public void onClickSettings() {
         SettingActivity.openActivity(getActivity());
     }
 
-    @OnClick(R.id.personal_about_rl)
     public void onClickAbout() {
         AboutActivity.openActivity(getActivity());
     }
@@ -54,6 +74,5 @@ public class PersonalFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        ButterKnife.reset(this);
     }
 }

@@ -22,8 +22,10 @@ import android.widget.ImageView;
 import com.bumptech.glide.Glide;
 import com.mylody.myone.R;
 import com.mylody.myone.bean.HomeBean;
+import com.mylody.myone.bean.ReadingBean;
 import com.mylody.myone.databinding.FragmentHomeItemBinding;
 import com.mylody.myone.module.HomeModel;
+import com.mylody.myone.util.Constants;
 import com.mylody.myone.util.Utils;
 
 /**

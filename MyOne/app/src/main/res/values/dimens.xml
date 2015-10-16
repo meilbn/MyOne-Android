@@ -7,6 +7,7 @@
     <dimen name="listview_separate_line_margin">15dp</dimen>
     <dimen name="market_time_tv_margin">15dp</dimen>
     <dimen name="market_time_tv_text_size">13sp</dimen>
+    <dimen name="title_bar_height">48dp</dimen>
 
     <!-- Main -->
     <dimen name="main_bottom_tabbar_height">56dp</dimen>
